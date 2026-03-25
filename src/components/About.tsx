@@ -7,20 +7,20 @@ export const About: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-40 px-6 bg-black relative overflow-hidden">
+    <section id="about" className="py-24 md:py-40 px-4 sm:px-6 bg-black relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="lg:col-span-7 relative"
           >
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-6 pt-12">
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
-                  className="aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10"
+                  className="aspect-[3/4] rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden border border-white/10"
                 >
                   <img
                     src="https://picsum.photos/seed/site1/1000/1400"
@@ -29,19 +29,19 @@ export const About: React.FC = () => {
                     referrerPolicy="no-referrer"
                   />
                 </motion.div>
-                <div className="glass-card p-8 rounded-[2.5rem] border-gold/20">
+                <div className="glass-card p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border-gold/20">
                   <p className="text-4xl font-display font-black text-gold mb-2 tracking-tighter">24/7</p>
                   <p className="text-[10px] text-muted uppercase tracking-[0.3em] font-bold">VIP Availability</p>
                 </div>
               </div>
               <div className="space-y-6">
-                <div className="glass-card p-8 rounded-[2.5rem] border-gold/20 text-center">
+                <div className="glass-card p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border-gold/20 text-center">
                   <p className="text-5xl font-display font-black text-gold mb-2 tracking-tighter">VCA</p>
                   <p className="text-[10px] text-muted uppercase tracking-[0.3em] font-bold">Safety Standard</p>
                 </div>
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
-                  className="aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10"
+                  className="aspect-[3/4] rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden border border-white/10"
                 >
                   <img
                     src="https://picsum.photos/seed/interior-work1/1000/1400"
@@ -57,7 +57,7 @@ export const About: React.FC = () => {
             <motion.div 
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass-dark p-12 rounded-full border-gold/40 z-20 shadow-[0_0_60px_rgba(212,165,44,0.2)] flex flex-col items-center justify-center text-center w-64 h-64"
+              className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass-dark p-12 rounded-full border-gold/40 z-20 shadow-[0_0_60px_rgba(212,165,44,0.2)] flex-col items-center justify-center text-center w-64 h-64"
             >
               <CheckCircle2 size={48} className="text-gold mb-4" />
               <p className="text-3xl font-black text-white tracking-tighter uppercase italic">Premium</p>
@@ -83,16 +83,16 @@ export const About: React.FC = () => {
             </h2>
             
             <div className="space-y-10">
-              <p className="text-white text-3xl font-light leading-tight tracking-tight">
+              <p className="text-white text-xl sm:text-2xl lg:text-3xl font-light leading-tight tracking-tight">
                 {t.about.p1}
               </p>
-              <div className="space-y-6 text-muted text-xl font-serif italic leading-relaxed border-l-2 border-gold/20 pl-8">
+              <div className="space-y-6 text-muted text-base sm:text-lg md:text-xl font-serif italic leading-relaxed border-l-2 border-gold/20 pl-6 sm:pl-8">
                 <p>{t.about.p2}</p>
                 <p>{t.about.p3}</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-14 sm:mt-20">
               <div className="group">
                 <div className="flex items-center gap-6 mb-4">
                   <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy transition-all duration-500">

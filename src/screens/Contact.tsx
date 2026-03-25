@@ -9,12 +9,12 @@ export const Contact: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <div id="contact" className="pt-32 pb-24 px-6 min-h-screen relative overflow-hidden">
+    <div id="contact" className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 min-h-screen relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gold/5 rounded-full blur-[100px] -z-10" />
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -28,7 +28,7 @@ export const Contact: React.FC = () => {
               </span>
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-black uppercase italic tracking-tighter leading-tight mb-8">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase italic tracking-tighter leading-tight mb-8">
               {t.contact.title}
             </h1>
             <p className="text-muted text-xl font-serif italic mb-16 max-w-md leading-relaxed">
@@ -82,7 +82,7 @@ export const Contact: React.FC = () => {
             viewport={{ once: true }}
             className="lg:col-span-7"
           >
-            <div className="glass-card p-10 md:p-16 rounded-[3rem] border-gold/20 relative">
+            <div className="glass-card p-6 sm:p-10 md:p-16 rounded-[2.5rem] sm:rounded-[3rem] border-gold/20 relative">
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/10 rounded-full blur-2xl" />
               <h2 className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-12 text-white">
                 Request a <span className="text-gold">Premium</span> Quote
@@ -103,7 +103,7 @@ export const Contact: React.FC = () => {
             <span className="text-gold font-bold uppercase tracking-widest text-sm">Our Headquarters in Rotterdam</span>
           </div>
           
-          <div className="rounded-[4rem] overflow-hidden h-[500px] border border-gold/20 relative group">
+          <div className="rounded-[2.5rem] sm:rounded-[4rem] overflow-hidden h-[360px] sm:h-[500px] border border-gold/20 relative group">
             <div className="absolute inset-0 bg-navy/40 group-hover:bg-transparent transition-colors duration-700 pointer-events-none z-10" />
             <iframe
               title="Google Maps"

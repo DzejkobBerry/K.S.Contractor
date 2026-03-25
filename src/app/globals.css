@@ -71,6 +71,7 @@ h1, h2, h3 {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Section Dividers */

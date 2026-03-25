@@ -36,18 +36,18 @@ export const Home: React.FC = () => {
       <div className="section-divider" />
       <WhyUs />
       
-      <section id="gallery" className="py-40 px-6 bg-black">
+      <section id="gallery" className="py-24 md:py-40 px-4 sm:px-6 bg-black">
         <div className="max-w-[1800px] mx-auto">
           <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-12">
             <div className="max-w-2xl">
               <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">
                 Excellence
               </span>
-              <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-[0.8]">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-[0.8]">
                 {t.gallery.title}
               </h2>
             </div>
-            <Link href="/gallery" className="group flex items-center gap-6 text-gold font-bold hover:text-white transition-all text-2xl uppercase tracking-widest">
+            <Link href="/gallery" className="group flex items-center gap-4 sm:gap-6 text-gold font-bold hover:text-white transition-all text-lg sm:text-2xl uppercase tracking-widest">
               {t.nav.gallery} <ArrowRight size={32} className="group-hover:translate-x-2 transition-transform" />
             </Link>
           </div>
@@ -83,7 +83,7 @@ export const Home: React.FC = () => {
       <Testimonials />
       <FAQ />
       
-      <section className="py-40 px-6 bg-black relative overflow-hidden">
+      <section className="py-24 md:py-40 px-4 sm:px-6 bg-black relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
           <img 
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2000" 
@@ -95,7 +95,7 @@ export const Home: React.FC = () => {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="glass-card p-20 md:p-32 rounded-[4rem] border-gold/30 text-center relative overflow-hidden group">
+          <div className="glass-card p-10 sm:p-16 md:p-32 rounded-[2.5rem] sm:rounded-[4rem] border-gold/30 text-center relative overflow-hidden group">
             <motion.div 
               animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
               transition={{ duration: 5, repeat: Infinity }}
@@ -130,17 +130,17 @@ export const Home: React.FC = () => {
                 <div className="h-px w-12 bg-gold/50" />
               </div>
 
-              <h2 className="text-6xl md:text-8xl font-black uppercase italic tracking-tighter leading-tight mb-12">
+              <h2 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase italic tracking-tighter leading-tight mb-8 sm:mb-12">
                 Ready to <span className="text-gold-gradient">Build?</span>
               </h2>
-              <p className="text-2xl md:text-3xl text-muted font-serif italic max-w-3xl mx-auto mb-20 leading-relaxed">
+              <p className="text-lg sm:text-2xl md:text-3xl text-muted font-serif italic max-w-3xl mx-auto mb-10 sm:mb-20 leading-relaxed">
                 Join our list of satisfied investors and experience construction at its finest in the heart of the Netherlands.
               </p>
               
               <div className="flex flex-col items-center gap-8">
                 <Link
                   href="/contact"
-                  className="group relative inline-flex items-center gap-6 px-16 py-8 bg-gold text-navy font-black rounded-full text-2xl uppercase tracking-widest hover:scale-105 transition-all hover:shadow-[0_0_80px_rgba(212,165,44,0.5)] active:scale-95"
+                  className="group relative inline-flex items-center gap-6 px-10 sm:px-16 py-6 sm:py-8 bg-gold text-navy font-black rounded-full text-lg sm:text-2xl uppercase tracking-widest hover:scale-105 transition-all hover:shadow-[0_0_80px_rgba(212,165,44,0.5)] active:scale-95"
                 >
                   <span className="relative z-10 flex items-center gap-4">
                     Get a Free Quote <ArrowRight size={32} className="group-hover:translate-x-2 transition-transform" />

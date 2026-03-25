@@ -45,7 +45,7 @@ export const Gallery: React.FC = () => {
   }, [selectedIndex]);
 
   return (
-    <div className="pt-32 pb-24 px-6 min-h-screen relative overflow-hidden">
+    <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 min-h-screen relative overflow-hidden">
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-gold/5 rounded-full blur-[100px] -z-10" />
 
@@ -67,7 +67,7 @@ export const Gallery: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-tight mb-12"
+            className="text-4xl sm:text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-tight mb-10 sm:mb-12"
           >
             {t.gallery.title}
           </motion.h1>

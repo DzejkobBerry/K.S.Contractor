@@ -19,7 +19,7 @@ export const Stats: React.FC = () => {
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-3xl overflow-hidden">
           {stats.map((stat, i) => (
             <motion.div
@@ -28,14 +28,14 @@ export const Stats: React.FC = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-black p-12 text-center group hover:bg-white/[0.02] transition-colors"
+              className="bg-black p-6 sm:p-10 lg:p-12 text-center group hover:bg-white/[0.02] transition-colors"
             >
               <div className="flex justify-center mb-6">
                 <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold group-hover:scale-110 transition-transform">
                   <stat.icon size={24} />
                 </div>
               </div>
-              <h3 className="text-6xl md:text-7xl font-display font-black text-gold-gradient mb-4 tracking-tighter">
+              <h3 className="text-4xl sm:text-5xl md:text-7xl font-display font-black text-gold-gradient mb-4 tracking-tighter">
                 {stat.value}
               </h3>
               <p className="text-[10px] uppercase tracking-[0.3em] text-muted font-mono font-bold">

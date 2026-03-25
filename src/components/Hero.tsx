@@ -8,7 +8,7 @@ export const Hero: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="home" className="relative min-h-screen lg:h-screen w-full flex items-center justify-center overflow-hidden bg-black py-20 lg:py-0">
+    <section id="home" className="relative min-h-screen lg:h-screen w-full flex items-center justify-center overflow-hidden bg-black py-16 sm:py-20 lg:py-0">
       {/* Background with parallax-like effect */}
       <div className="absolute inset-0 z-0">
         <motion.img
@@ -27,13 +27,13 @@ export const Hero: React.FC = () => {
         <div className="absolute bottom-1/4 right-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-gold/5 blur-[120px] md:blur-[180px] rounded-full animate-pulse delay-1000" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-8 text-left pt-12 lg:pt-16"
+            className="lg:col-span-8 text-left pt-10 sm:pt-12 lg:pt-16"
           >
             <h1 className="text-3xl md:text-4xl lg:text-[4.5rem] leading-[0.9] lg:leading-[0.85] font-display font-black tracking-tighter uppercase italic mb-6 md:mb-8">
               <span className="block text-white mix-blend-difference">K.S.</span>
@@ -52,10 +52,10 @@ export const Hero: React.FC = () => {
                 {t.hero.subtitle}
               </p>
               
-              <div className="flex flex-wrap gap-4 md:gap-6">
+              <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
                 <Link
                   href="/contact"
-                  className="group relative px-8 md:px-12 py-4 md:py-6 bg-gold text-navy font-bold rounded-full overflow-hidden transition-all hover:shadow-[0_0_60px_rgba(212,165,44,0.4)] hover:scale-105 active:scale-95 text-center"
+                  className="group relative w-full sm:w-auto px-7 sm:px-8 md:px-12 py-4 md:py-6 bg-gold text-navy font-bold rounded-full overflow-hidden transition-all hover:shadow-[0_0_60px_rgba(212,165,44,0.4)] hover:scale-105 active:scale-95 text-center"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-3 text-base md:text-lg uppercase tracking-widest">
                     {t.hero.ctaContact} <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
                 </Link>
                 <a
                   href="#services"
-                  className="px-8 md:px-12 py-4 md:py-6 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all text-base md:text-lg uppercase tracking-widest backdrop-blur-md text-center"
+                  className="w-full sm:w-auto px-7 sm:px-8 md:px-12 py-4 md:py-6 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all text-base md:text-lg uppercase tracking-widest backdrop-blur-md text-center"
                 >
                   {t.hero.ctaServices}
                 </a>
