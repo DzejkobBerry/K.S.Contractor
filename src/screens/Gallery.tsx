@@ -5,19 +5,35 @@ import { useLanguage } from '../context/LanguageContext';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const Gallery: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const projects = [
-    { url: "https://picsum.photos/seed/interior1/1200/800", category: "Interior" },
-    { url: "https://picsum.photos/seed/flooring1/1200/800", category: "Flooring" },
-    { url: "https://picsum.photos/seed/bathroom1/1200/800", category: "Bathroom" },
-    { url: "https://picsum.photos/seed/painting1/1200/800", category: "Painting" },
-    { url: "https://picsum.photos/seed/construction1/1200/800", category: "Construction" },
-    { url: "https://picsum.photos/seed/exterior1/1200/800", category: "Exterior" },
-    { url: "https://picsum.photos/seed/tiles1/1200/800", category: "Tiles" },
-    { url: "https://picsum.photos/seed/renovation1/1200/800", category: "Renovation" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/1_23_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/2_22_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/4_20_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/3_21_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/5_19_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/15_9_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/6_18_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/13_11_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/10_14_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/11_13_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/20_4_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/16_8_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/17_7_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/21_3_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/22_2_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/12_12_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/14_10_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/19_5_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/7_17_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/8_16_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/9_15_11zon.webp" },
+    { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/18_6_11zon.webp" },
   ];
+
+  const clickHint = language === 'pl' ? 'Kliknij, aby powiększyć' : 'Tik om te vergroten';
 
   const nextImage = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -81,7 +97,7 @@ export const Gallery: React.FC = () => {
           </motion.p>
         </div>
 
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
             <motion.div
               key={i}
@@ -90,19 +106,26 @@ export const Gallery: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
               onClick={() => setSelectedIndex(i)}
-              className="relative group rounded-[2rem] overflow-hidden border border-white/10 break-inside-avoid shadow-2xl cursor-pointer"
+              className="relative group rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl cursor-pointer"
             >
-              <img
-                src={project.url}
-                alt={project.category}
-                className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-1000"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
-                <span className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-2">Category</span>
-                <h3 className="text-2xl font-black uppercase italic text-white tracking-tight">
-                  {project.category}
-                </h3>
+              <div className="relative w-full aspect-[4/3] bg-black">
+                <img
+                  src={project.url}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40"
+                  referrerPolicy="no-referrer"
+                />
+                <img
+                  src={project.url}
+                  alt={`Gallery image ${i + 1}`}
+                  className="absolute inset-0 w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-100 group-hover:opacity-0 transition-opacity duration-300 flex items-end p-8 pointer-events-none">
+                <p className="text-white/90 font-black uppercase tracking-[0.22em] text-xs">
+                  {clickHint}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -144,20 +167,25 @@ export const Gallery: React.FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="relative max-w-6xl w-full aspect-video rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(212,165,44,0.1)]"
+              className="relative max-w-6xl w-full max-h-[82vh] aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(212,165,44,0.1)] bg-black"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={projects[selectedIndex].url}
-                alt={projects[selectedIndex].category}
-                className="w-full h-full object-cover"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-35"
+                referrerPolicy="no-referrer"
+              />
+              <img
+                src={projects[selectedIndex].url}
+                alt={`Gallery image ${selectedIndex + 1}`}
+                className="absolute inset-0 w-full h-full object-contain"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 bg-gradient-to-t from-black/80 to-transparent">
-                <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-2 block">Project Details</span>
-                <h2 className="text-4xl md:text-6xl font-black uppercase italic text-white tracking-tighter">
-                  {projects[selectedIndex].category}
-                </h2>
+                <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-2 block">
+                  {language === 'pl' ? 'Zdjęcie' : 'Foto'} {String(selectedIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+                </span>
               </div>
             </motion.div>
           </motion.div>
