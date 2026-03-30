@@ -6,7 +6,18 @@ import { ContactForm } from '../components/ContactForm';
 import { MapPin, Phone, Mail, Clock, ShieldCheck } from 'lucide-react';
 
 export const Contact: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const getInTouchLabel = language === 'pl' ? 'Skontaktuj się' : 'Neem contact op';
+  const quoteTitlePrefix = language === 'pl' ? 'Poproś o wycenę ' : 'Vraag een ';
+  const quoteTitleEmphasis = language === 'pl' ? 'Premium' : 'Premium';
+  const quoteTitleSuffix = language === 'pl' ? '' : ' offerte';
+  const hqLabel = language === 'pl' ? 'Nasza siedziba w Rotterdamie' : 'Ons hoofdkantoor in Rotterdam';
+  const certTitle = language === 'pl' ? 'Certyfikaty VCA & GPI' : 'VCA & GPI gecertificeerd';
+  const certDesc =
+    language === 'pl'
+      ? 'Gwarantujemy profesjonalne standardy bezpieczeństwa na wszystkich placach budowy w Holandii.'
+      : 'Professionele veiligheidsnormen gegarandeerd op alle bouwplaatsen in Nederland.';
 
   return (
     <div id="contact" className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 min-h-screen relative overflow-hidden">
@@ -24,7 +35,7 @@ export const Contact: React.FC = () => {
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px w-12 bg-gold" />
               <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">
-                Get in Touch
+                {getInTouchLabel}
               </span>
             </div>
 
@@ -69,8 +80,8 @@ export const Contact: React.FC = () => {
                   <ShieldCheck size={32} />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-3 uppercase tracking-tight">VCA & GPI Certified</h3>
-                  <p className="text-muted text-lg leading-relaxed">Professional safety standards guaranteed for all construction sites across the Netherlands.</p>
+                  <h3 className="text-2xl font-bold mb-3 uppercase tracking-tight">{certTitle}</h3>
+                  <p className="text-muted text-lg leading-relaxed">{certDesc}</p>
                 </div>
               </div>
             </div>
@@ -85,7 +96,7 @@ export const Contact: React.FC = () => {
             <div className="glass-card p-6 sm:p-10 md:p-16 rounded-[2.5rem] sm:rounded-[3rem] border-gold/20 relative">
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/10 rounded-full blur-2xl" />
               <h2 className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-12 text-white">
-                Request a <span className="text-gold">Premium</span> Quote
+                {quoteTitlePrefix}<span className="text-gold">{quoteTitleEmphasis}</span>{quoteTitleSuffix}
               </h2>
               <ContactForm />
             </div>
@@ -100,7 +111,7 @@ export const Contact: React.FC = () => {
         >
           <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex items-center gap-4 px-8 py-4 bg-navy border border-gold/30 rounded-full z-20 shadow-[0_0_40px_rgba(212,165,44,0.2)]">
             <div className="w-3 h-3 bg-gold rounded-full animate-pulse" />
-            <span className="text-gold font-bold uppercase tracking-widest text-sm">Our Headquarters in Rotterdam</span>
+            <span className="text-gold font-bold uppercase tracking-widest text-sm">{hqLabel}</span>
           </div>
           
           <div className="rounded-[2.5rem] sm:rounded-[4rem] overflow-hidden h-[360px] sm:h-[500px] border border-gold/20 relative group">

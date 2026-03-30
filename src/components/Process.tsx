@@ -4,7 +4,10 @@ import { useLanguage } from '../context/LanguageContext';
 import { Search, FileText, Hammer, CheckCircle2 } from 'lucide-react';
 
 export const Process: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const bgLabel = language === 'pl' ? 'Proces' : 'Proces';
+  const sectionLabel = language === 'pl' ? 'Realizacja' : 'Uitvoering';
 
   const steps = [
     { id: 'step1', icon: Search },
@@ -17,12 +20,12 @@ export const Process: React.FC = () => {
     <section className="py-24 md:py-40 px-4 sm:px-6 bg-black relative overflow-hidden">
       {/* Background Text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-white/[0.02] uppercase tracking-tighter select-none pointer-events-none whitespace-nowrap">
-        Workflow
+        {bgLabel}
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 md:mb-32">
-          <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">Execution</span>
+          <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">{sectionLabel}</span>
           <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-[0.8] mb-8">
             {t.process.title}
           </h2>

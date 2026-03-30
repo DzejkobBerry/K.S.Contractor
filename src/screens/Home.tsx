@@ -14,7 +14,18 @@ import Link from 'next/link';
 import { ArrowRight, Hammer, Ruler, HardHat, Construction, ShieldCheck } from 'lucide-react';
 
 export const Home: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const excellenceLabel = language === 'pl' ? 'Realizacje' : 'Realisaties';
+  const collaborateLabel = language === 'pl' ? 'Współpraca' : 'Samenwerken';
+  const ctaTitlePrefix = language === 'pl' ? 'Gotowy na ' : 'Klaar om te ';
+  const ctaTitleEmphasis = language === 'pl' ? 'Remont?' : 'Bouwen?';
+  const ctaParagraph =
+    language === 'pl'
+      ? 'Dołącz do grona zadowolonych inwestorów i przekonaj się, jak wygląda realizacja na najwyższym poziomie w sercu Holandii.'
+      : 'Sluit je aan bij tevreden investeerders en ervaar vakmanschap op topniveau in het hart van Nederland.';
+  const vcaLabel = language === 'pl' ? 'Certyfikat VCA' : 'VCA gecertificeerd';
+  const gpiLabel = language === 'pl' ? 'Bezpieczeństwo GPI' : 'GPI veiligheid';
 
   const galleryImages = [
     "https://picsum.photos/seed/project1/1000/1200",
@@ -41,7 +52,7 @@ export const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-12">
             <div className="max-w-2xl">
               <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">
-                Excellence
+                {excellenceLabel}
               </span>
               <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-[0.8]">
                 {t.gallery.title}
@@ -126,15 +137,15 @@ export const Home: React.FC = () => {
             >
               <div className="flex items-center justify-center gap-4 mb-12">
                 <div className="h-px w-12 bg-gold/50" />
-                <span className="text-gold font-bold uppercase tracking-[0.4em] text-xs">Let's Collaborate</span>
+                <span className="text-gold font-bold uppercase tracking-[0.4em] text-xs">{collaborateLabel}</span>
                 <div className="h-px w-12 bg-gold/50" />
               </div>
 
               <h2 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase italic tracking-tighter leading-tight mb-8 sm:mb-12">
-                Ready to <span className="text-gold-gradient">Build?</span>
+                {ctaTitlePrefix}<span className="text-gold-gradient">{ctaTitleEmphasis}</span>
               </h2>
               <p className="text-lg sm:text-2xl md:text-3xl text-muted font-serif italic max-w-3xl mx-auto mb-10 sm:mb-20 leading-relaxed">
-                Join our list of satisfied investors and experience construction at its finest in the heart of the Netherlands.
+                {ctaParagraph}
               </p>
               
               <div className="flex flex-col items-center gap-8">
@@ -143,19 +154,19 @@ export const Home: React.FC = () => {
                   className="group relative inline-flex items-center gap-6 px-10 sm:px-16 py-6 sm:py-8 bg-gold text-navy font-black rounded-full text-lg sm:text-2xl uppercase tracking-widest hover:scale-105 transition-all hover:shadow-[0_0_80px_rgba(212,165,44,0.5)] active:scale-95"
                 >
                   <span className="relative z-10 flex items-center gap-4">
-                    Get a Free Quote <ArrowRight size={32} className="group-hover:translate-x-2 transition-transform" />
+                    {t.hero.ctaContact} <ArrowRight size={32} className="group-hover:translate-x-2 transition-transform" />
                   </span>
                 </Link>
                 
                 <div className="flex items-center gap-8 text-gold/60">
                   <div className="flex items-center gap-2">
                     <HardHat size={20} />
-                    <span className="text-xs font-bold uppercase tracking-widest">VCA Certified</span>
+                    <span className="text-xs font-bold uppercase tracking-widest">{vcaLabel}</span>
                   </div>
                   <div className="w-1 h-1 rounded-full bg-gold/30" />
                   <div className="flex items-center gap-2">
                     <ShieldCheck size={20} />
-                    <span className="text-xs font-bold uppercase tracking-widest">GPI Safety</span>
+                    <span className="text-xs font-bold uppercase tracking-widest">{gpiLabel}</span>
                   </div>
                 </div>
               </div>

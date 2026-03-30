@@ -4,7 +4,33 @@ import { useLanguage } from '../context/LanguageContext';
 import { Facebook, Instagram, Linkedin, Phone, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const hoursTitle = language === 'pl' ? 'Godziny otwarcia' : 'Openingstijden';
+  const monFriLabel = language === 'pl' ? 'Pon - Pt:' : 'Ma - Vr:';
+  const satLabel = language === 'pl' ? 'Sob:' : 'Za:';
+  const sunLabel = language === 'pl' ? 'Niedz:' : 'Zo:';
+  const sunValue = language === 'pl' ? 'Opcjonalnie' : 'Optioneel';
+  const safetyCertified = language === 'pl' ? 'Certyfikat bezpieczeństwa' : 'Veiligheid gecertificeerd';
+  const rights = language === 'pl' ? 'Wszelkie prawa zastrzeżone.' : 'Alle rechten voorbehouden.';
+  const madeBy = language === 'pl' ? 'Strona wykonana przez' : 'Website door';
+  const privacy = language === 'pl' ? 'Polityka prywatności' : 'Privacybeleid';
+  const terms = language === 'pl' ? 'Warunki korzystania' : 'Algemene voorwaarden';
+
+  const renderContractorCasing = (text: string) => {
+    const key = 'Contractor';
+    const index = text.indexOf(key);
+    if (index === -1) return text;
+    const before = text.slice(0, index);
+    const after = text.slice(index + key.length);
+    return (
+      <>
+        {before}
+        <span className="normal-case">{key}</span>
+        {after}
+      </>
+    );
+  };
 
   return (
     <footer className="bg-black border-t border-white/5 pt-20 pb-10 px-6">
@@ -47,19 +73,19 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="text-gold font-bold uppercase tracking-widest text-xs mb-6">Working Hours</h4>
+            <h4 className="text-gold font-bold uppercase tracking-widest text-xs mb-6">{hoursTitle}</h4>
             <ul className="space-y-3 text-sm text-muted">
               <li className="flex justify-between">
-                <span>Mon - Fri:</span>
-                <span className="text-white">08:00 - 18:00</span>
+                <span>{monFriLabel}</span>
+                <span className="text-white">07:00 - 19:00</span>
               </li>
               <li className="flex justify-between">
-                <span>Sat:</span>
-                <span className="text-white">09:00 - 14:00</span>
+                <span>{satLabel}</span>
+                <span className="text-white">07:00 - 17:00</span>
               </li>
               <li className="flex justify-between">
-                <span>Sun:</span>
-                <span className="text-gold">Closed</span>
+                <span>{sunLabel}</span>
+                <span className="text-gold">{sunValue}</span>
               </li>
             </ul>
           </div>
@@ -77,18 +103,18 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-gold font-bold">VCA</span>
-                <span>Safety Certified</span>
+                <span>{safetyCertified}</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-muted/60">
-          <p>© 2026 K.S. Contractor. All rights reserved.</p>
-          <p>Website door <a href="https://bloompixel.studio" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">bloompixel.studio</a></p>
+          <p>© 2026 {renderContractorCasing('K.S. Contractor')}. {rights}</p>
+          <p>{madeBy} <a href="https://bloompixel.studio" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">bloompixel.studio</a></p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-gold transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-gold transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-gold transition-colors">{privacy}</a>
+            <a href="#" className="hover:text-gold transition-colors">{terms}</a>
           </div>
         </div>
       </div>

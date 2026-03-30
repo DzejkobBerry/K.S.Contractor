@@ -4,7 +4,30 @@ import { useLanguage } from '../context/LanguageContext';
 import { CheckCircle2, MapPin, Calendar } from 'lucide-react';
 
 export const About: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const sectionLabel = language === 'pl' ? 'O firmie' : 'Over ons';
+  const vipLabel = language === 'pl' ? 'Dostępność VIP' : 'VIP-beschikbaarheid';
+  const safetyLabel = language === 'pl' ? 'Standard bezpieczeństwa' : 'Veiligheidsnorm';
+  const locationLabel = language === 'pl' ? 'Lokalizacja' : 'Locatie';
+  const establishedLabel = language === 'pl' ? 'Założona' : 'Opgericht';
+  const premiumLabel = language === 'pl' ? 'Premium' : 'Premium';
+  const guaranteedLabel = language === 'pl' ? 'Gwarantowane' : 'Gegarandeerd';
+
+  const renderContractorCasing = (text: string) => {
+    const key = 'Contractor';
+    const index = text.indexOf(key);
+    if (index === -1) return text;
+    const before = text.slice(0, index);
+    const after = text.slice(index + key.length);
+    return (
+      <>
+        {before}
+        <span className="normal-case">{key}</span>
+        {after}
+      </>
+    );
+  };
 
   return (
     <section id="about" className="py-24 md:py-40 px-4 sm:px-6 bg-black relative overflow-hidden">
@@ -31,13 +54,13 @@ export const About: React.FC = () => {
                 </motion.div>
                 <div className="glass-card p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border-gold/20">
                   <p className="text-4xl font-display font-black text-gold mb-2 tracking-tighter">24/7</p>
-                  <p className="text-[10px] text-muted uppercase tracking-[0.3em] font-bold">VIP Availability</p>
+                  <p className="text-[10px] text-muted uppercase tracking-[0.3em] font-bold">{vipLabel}</p>
                 </div>
               </div>
               <div className="space-y-6">
                 <div className="glass-card p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border-gold/20 text-center">
                   <p className="text-5xl font-display font-black text-gold mb-2 tracking-tighter">VCA</p>
-                  <p className="text-[10px] text-muted uppercase tracking-[0.3em] font-bold">Safety Standard</p>
+                  <p className="text-[10px] text-muted uppercase tracking-[0.3em] font-bold">{safetyLabel}</p>
                 </div>
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
@@ -60,8 +83,8 @@ export const About: React.FC = () => {
               className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass-dark p-12 rounded-full border-gold/40 z-20 shadow-[0_0_60px_rgba(212,165,44,0.2)] flex-col items-center justify-center text-center w-64 h-64"
             >
               <CheckCircle2 size={48} className="text-gold mb-4" />
-              <p className="text-3xl font-black text-white tracking-tighter uppercase italic">Premium</p>
-              <p className="text-[10px] text-gold uppercase tracking-[0.25em] font-bold">Guaranteed</p>
+              <p className="text-3xl font-black text-white tracking-tighter uppercase italic">{premiumLabel}</p>
+              <p className="text-[10px] text-gold uppercase tracking-[0.25em] font-bold">{guaranteedLabel}</p>
             </motion.div>
           </motion.div>
 
@@ -74,12 +97,12 @@ export const About: React.FC = () => {
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px w-12 bg-gold" />
               <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">
-                The Legacy
+                {sectionLabel}
               </span>
             </div>
             
             <h2 className="text-4xl md:text-6xl mb-12 leading-[0.85] tracking-tighter uppercase italic font-black">
-              {t.about.title}
+              {renderContractorCasing(t.about.title)}
             </h2>
             
             <div className="space-y-10">
@@ -99,7 +122,7 @@ export const About: React.FC = () => {
                     <MapPin size={28} />
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-muted mb-1 font-bold">Location</p>
+                    <p className="text-[10px] uppercase tracking-widest text-muted mb-1 font-bold">{locationLabel}</p>
                     <p className="text-xl font-bold text-white">Rotterdam, NL</p>
                   </div>
                 </div>
@@ -110,7 +133,7 @@ export const About: React.FC = () => {
                     <Calendar size={28} />
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-muted mb-1 font-bold">Established</p>
+                    <p className="text-[10px] uppercase tracking-widest text-muted mb-1 font-bold">{establishedLabel}</p>
                     <p className="text-xl font-bold text-white">2023</p>
                   </div>
                 </div>

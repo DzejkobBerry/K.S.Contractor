@@ -2,9 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageCircle, ChevronUp } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const FloatingActions: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { language } = useLanguage();
+
+  const scrollTitle = language === 'pl' ? 'Przewiń do góry' : 'Naar boven';
+  const whatsappHint = language === 'pl' ? 'Napisz do nas na WhatsApp' : 'Chat met ons op WhatsApp';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +33,7 @@ export const FloatingActions: React.FC = () => {
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
             onClick={scrollToTop}
             className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-gold hover:text-navy transition-all shadow-xl group"
-            title="Scroll to top"
+            title={scrollTitle}
           >
             <ChevronUp size={24} className="group-hover:-translate-y-1 transition-transform" />
           </motion.button>
@@ -55,7 +60,7 @@ export const FloatingActions: React.FC = () => {
         
         {/* Tooltip */}
         <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-4 py-2 bg-black/80 backdrop-blur-md border border-white/10 rounded-xl text-white text-sm font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-          Chat with us on WhatsApp
+          {whatsappHint}
         </div>
       </motion.a>
     </div>

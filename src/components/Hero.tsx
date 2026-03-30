@@ -5,7 +5,15 @@ import { useLanguage } from '../context/LanguageContext';
 import Link from 'next/link';
 
 export const Hero: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const heroKicker = language === 'pl' ? 'Rotterdam • Premium remonty' : 'Rotterdam • Premium bouw';
+  const scrollDownLabel = language === 'pl' ? 'Przewiń w dół' : 'Scroll omlaag';
+  const safetyTitle = language === 'pl' ? 'Certyfikowany standard bezpieczeństwa' : 'Gecertificeerde veiligheidsnorm';
+  const safetyQuote =
+    language === 'pl'
+      ? '"Nie tylko budujemy — tworzymy trwałe realizacje z bezkompromisowym naciskiem na bezpieczeństwo i precyzję."'
+      : '"We bouwen niet alleen; we leveren duurzame projecten met compromisloze veiligheid en precisie."';
 
   return (
     <section id="home" className="relative min-h-screen lg:h-screen w-full flex items-center justify-center overflow-hidden bg-black py-16 sm:py-20 lg:py-0">
@@ -37,13 +45,13 @@ export const Hero: React.FC = () => {
           >
             <h1 className="text-3xl md:text-4xl lg:text-[4.5rem] leading-[0.9] lg:leading-[0.85] font-display font-black tracking-tighter uppercase italic mb-6 md:mb-8">
               <span className="block text-white mix-blend-difference">K.S.</span>
-              <span className="text-gold-gradient block">Contractor</span>
+              <span className="text-gold-gradient block normal-case">Contractor</span>
             </h1>
 
             <div className="flex items-center gap-4 mb-8 md:mb-10">
               <div className="h-px w-12 bg-gold" />
               <span className="text-gold text-xs md:text-sm font-mono uppercase tracking-[0.3em]">
-                Rotterdam • Premium Construction
+                {heroKicker}
               </span>
             </div>
 
@@ -82,10 +90,10 @@ export const Hero: React.FC = () => {
                 <ShieldCheck size={80} />
               </div>
               <p className="text-4xl font-display font-black text-gold mb-4 tracking-tighter">VCA & GPI</p>
-              <p className="text-sm text-muted uppercase tracking-widest font-bold mb-8">Certified Safety Standard</p>
+              <p className="text-sm text-muted uppercase tracking-widest font-bold mb-8">{safetyTitle}</p>
               <div className="h-px w-full bg-white/10 mb-8" />
               <p className="text-lg font-serif italic text-white/80">
-                "We don't just build structures; we craft legacies with uncompromising safety and precision."
+                {safetyQuote}
               </p>
             </div>
           </motion.div>
@@ -97,7 +105,7 @@ export const Hero: React.FC = () => {
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 text-gold/30 flex flex-col items-center gap-4"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em] font-bold">Scroll Down</span>
+        <span className="text-[10px] uppercase tracking-[0.3em] font-bold">{scrollDownLabel}</span>
         <div className="w-px h-12 bg-gradient-to-b from-gold/50 to-transparent" />
       </motion.div>
     </section>

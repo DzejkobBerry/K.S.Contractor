@@ -34,6 +34,7 @@ export const Gallery: React.FC = () => {
   ];
 
   const clickHint = language === 'pl' ? 'Kliknij, aby powiększyć' : 'Tik om te vergroten';
+  const portfolioLabel = language === 'pl' ? 'Portfolio' : 'Portfolio';
 
   const nextImage = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -74,7 +75,7 @@ export const Gallery: React.FC = () => {
           >
             <div className="h-px w-12 bg-gold" />
             <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">
-              Portfolio
+              {portfolioLabel}
             </span>
             <div className="h-px w-12 bg-gold" />
           </motion.div>

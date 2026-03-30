@@ -4,9 +4,16 @@ import { useLanguage } from '../context/LanguageContext';
 import { Send, CheckCircle2, X } from 'lucide-react';
 
 export const ContactForm: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const namePlaceholder = language === 'pl' ? 'Jan Kowalski' : 'Jan Jansen';
+  const servicePlaceholder = language === 'pl' ? 'Wybierz usługę' : 'Kies een dienst';
+  const otherLabel = language === 'pl' ? 'Inne / Mix' : 'Overig / Mix';
+  const messagePlaceholder =
+    language === 'pl' ? 'Opisz krótko swój projekt...' : 'Vertel ons kort over je project...';
+  const sendingLabel = language === 'pl' ? 'Wysyłanie...' : 'Verzenden...';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,7 +37,7 @@ export const ContactForm: React.FC = () => {
             <input
               required
               type="text"
-              placeholder="John Doe"
+              placeholder={namePlaceholder}
               className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-gold focus:bg-white/[0.05] transition-all text-white placeholder:text-white/10"
             />
           </div>
@@ -65,13 +72,14 @@ export const ContactForm: React.FC = () => {
             </label>
             <select
               required
+              defaultValue=""
               className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-gold focus:bg-white/[0.05] transition-all text-white appearance-none cursor-pointer"
             >
-              <option value="" disabled selected className="bg-navy">Select a service</option>
+              <option value="" disabled className="bg-navy">{servicePlaceholder}</option>
               <option value="renovation" className="bg-navy">{t.services.items.tiles}</option>
               <option value="flooring" className="bg-navy">{t.services.items.flooring}</option>
               <option value="painting" className="bg-navy">{t.services.items.painting}</option>
-              <option value="other" className="bg-navy">Other / Mix</option>
+              <option value="other" className="bg-navy">{otherLabel}</option>
             </select>
           </div>
         </div>
@@ -83,7 +91,7 @@ export const ContactForm: React.FC = () => {
           <textarea
             required
             rows={5}
-            placeholder="Tell us about your project..."
+            placeholder={messagePlaceholder}
             className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-gold focus:bg-white/[0.05] transition-all text-white resize-none placeholder:text-white/10"
           />
         </div>
@@ -94,7 +102,7 @@ export const ContactForm: React.FC = () => {
           className="w-full group relative overflow-hidden gold-gradient text-navy font-black py-5 rounded-2xl flex items-center justify-center gap-4 hover:shadow-[0_0_40px_rgba(212,165,44,0.3)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <span className="relative z-10 flex items-center gap-4 text-xl uppercase tracking-widest">
-            {isLoading ? 'Sending...' : t.contact.form.send} 
+            {isLoading ? sendingLabel : t.contact.form.send} 
             {!isLoading && <Send size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
           </span>
         </button>
