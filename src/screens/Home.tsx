@@ -28,12 +28,12 @@ export const Home: React.FC = () => {
   const gpiLabel = language === 'pl' ? 'Bezpieczeństwo GPI' : 'GPI veiligheid';
 
   const galleryImages = [
-    "https://picsum.photos/seed/project1/1000/1200",
-    "https://picsum.photos/seed/project2/1000/1200",
-    "https://picsum.photos/seed/project3/1000/1200",
-    "https://picsum.photos/seed/project4/1000/1200",
-    "https://picsum.photos/seed/project5/1000/1200",
-    "https://picsum.photos/seed/project6/1000/1200"
+    "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/1_23_11zon.webp",
+    "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/2_22_11zon.webp",
+    "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/4_20_11zon.webp",
+    "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/3_21_11zon.webp",
+    "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/5_19_11zon.webp",
+    "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/15_9_11zon.webp"
   ];
 
   return (
@@ -79,11 +79,10 @@ export const Home: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-12">
-                  <div>
-                    <p className="text-gold font-mono text-sm mb-2">Rotterdam Project</p>
-                    <h4 className="text-3xl font-bold text-white uppercase tracking-tighter italic">Luxury Interior</h4>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-100 group-hover:opacity-0 transition-opacity duration-500 flex items-end p-12">
+                  <p className="text-white/80 font-black uppercase tracking-[0.22em] text-xs">
+                    {language === 'pl' ? 'Kliknij, aby powiększyć' : 'Tik om te vergroten'}
+                  </p>
                 </div>
               </motion.div>
             ))}

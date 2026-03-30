@@ -59,6 +59,17 @@ export interface Translation {
       concrete: string;
       concreteFloor: string;
     };
+    descriptions: {
+      tiles: string;
+      flooring: string;
+      wallpaper: string;
+      painting: string;
+      drywall: string;
+      garden: string;
+      demolition: string;
+      concrete: string;
+      concreteFloor: string;
+    };
   };
   whyUs: {
     title: string;
@@ -68,6 +79,11 @@ export interface Translation {
     clients: string;
     noDifficulty: string;
     certifications: string;
+    label: string;
+    certificationsDesc: string;
+    speedDesc: string;
+    qualityDesc: string;
+    clientsDesc: string;
   };
   gallery: {
     title: string;
@@ -103,6 +119,23 @@ export interface Translation {
   modal: {
     title: string;
     choose: string;
+  };
+  testimonials: {
+    label: string;
+    heading: string;
+    headingHighlight: string;
+    quote: string;
+  };
+  servicesSection: {
+    label: string;
+    description: string;
+    itemDescription: string;
+    learnMore: string;
+  };
+  common: {
+    closeMenu: string;
+    openMenu: string;
+    menu: string;
   };
 }
 
@@ -156,15 +189,26 @@ export const translations: Record<Language, Translation> = {
     services: {
       title: 'Zakres Ekspercki',
       items: {
-        tiles: 'Glazurnictwo Artystyczne',
+        tiles: 'Glazurnictwo',
         flooring: 'Systemy Podłogowe Premium',
         wallpaper: 'Dekoracje Ścienne & Tapety',
         painting: 'Malowanie Natryskowe & Tradycyjne',
         drywall: 'Konstrukcje G-K & Sufity Podwieszane',
-        garden: 'Architektura Krajobrazu & Ogrody',
+        garden: 'Podstawowe Prace Ogrodnicze',
         demolition: 'Wyburzenia Kontrolowane',
         concrete: 'Inżynieria Betonowa',
         concreteFloor: 'Renowacja Posadzek Przemysłowych',
+      },
+      descriptions: {
+        tiles: 'Profesjonalne wykonanie prac glazurniczych z użyciem materiałów premium i certyfikowanych technik. Dostosowane do projektów premium w Holandii.',
+        flooring: 'Profesjonalne systemy podłogowe z materiałów najwyższej klasy. Doskonałe wykończenia dla mieszkań i obiektów komercyjnych.',
+        wallpaper: 'Ekspertne prace dekoracyjne i instalacja tapety. Transformacja pomieszczeń z najwyższą dbałością o detale.',
+        painting: 'Profesjonalne malowanie tradycyjne i natryskowe. Jakość i precyzja na każdej powierzchni.',
+        drywall: 'Konstrukcje gipsowe i sufity podwieszane. Nowoczesne rozwiązania architektoniczne dla Twojej przestrzeni.',
+        garden: 'Koszenie, przycinanie, sadzenie i prace porządkowe. Specjalizujemy się w pracach ogrodowych o małych i średnich gabarytach.',
+        demolition: 'Profesjonalne prace rozbiórkowe i wyburzenia kontrolowane o małych i średnich gabarytach. Zawsze z najwyższymi standardami bezpieczeństwa.',
+        concrete: 'Prace betonowe i inżynieria betonowa. Solidne fundamenty i powierzchnie wytrzymałe na lata.',
+        concreteFloor: 'Renowacja posadzek do 50m2. Specjalizujemy się w tarasach, balkonach, garażach i pomieszczeniach gospodarczych.',
       },
     },
     whyUs: {
@@ -175,6 +219,11 @@ export const translations: Record<Language, Translation> = {
       clients: 'Zaufanie Firm i Osób Prywatnych',
       noDifficulty: 'Rozwiązujemy Najtrudniejsze Wyzwania',
       certifications: 'Standardy Bezpieczeństwa VCA & GPI',
+      label: 'Zalety',
+      certificationsDesc: 'Stosujemy najsurowsze protokoły bezpieczeństwa w Holandii. Certyfikacje VCA i GPI to dla nas standard, nie opcja.',
+      speedDesc: 'Szybkie i elastyczne terminy realizacji dla Twoich projektów.',
+      qualityDesc: 'Wyłącznie materiały najwyższej klasy i certyfikowane techniki budowlane.',
+      clientsDesc: 'Zaufanie udzielane nam przez firmy i inwestorów prywatnych w całej Holandii.',
     },
     gallery: {
       title: 'Portfolio Realizacji',
@@ -210,6 +259,23 @@ export const translations: Record<Language, Translation> = {
     modal: {
       title: 'Witaj w K.S. Contractor',
       choose: 'Wybierz język komunikacji / Kies uw taal',
+    },
+    testimonials: {
+      label: 'Opinie',
+      heading: 'Głosy',
+      headingHighlight: 'Klientów',
+      quote: 'Zaufanie jest fundamentem każdej budowanej przez nas struktury. Oto co mówią nasi partnerzy.',
+    },
+    servicesSection: {
+      label: 'Ekspercki Zakres',
+      description: 'Łączymy tradycyjne rzemiosło z nowoczesną inżynierią, aby dostarczyć rezultaty, które przebiją oczekiwania.',
+      itemDescription: 'Profesjonalne wykonanie z użyciem materiałów premium i certyfikowanych technik. Dostosowane do projektów premium w Holandii.',
+      learnMore: 'Dowiedz się więcej',
+    },
+    common: {
+      closeMenu: 'Zamknij menu',
+      openMenu: 'Otwórz menu',
+      menu: 'Menu',
     },
   },
   nl: {
@@ -261,15 +327,26 @@ export const translations: Record<Language, Translation> = {
     services: {
       title: 'Expertisegebied',
       items: {
-        tiles: 'Artistiek Tegelwerk',
+        tiles: 'Tegelwerk',
         flooring: 'Premium Vloersystemen',
         wallpaper: 'Wanddecoratie & Behang',
         painting: 'Spuitwerk & Traditioneel Schilderen',
         drywall: 'Gipsconstructies & Plafonds',
-        garden: 'Landschapsarchitectuur & Tuinen',
+        garden: 'Basis Tuinwerkzaamheden',
         demolition: 'Gecontroleerde Sloop',
         concrete: 'Betontechniek',
-        concreteFloor: 'Renovatie van Industrievloeren',
+        concreteFloor: 'Renovatie van Vloeren',
+      },
+      descriptions: {
+        tiles: 'Professionele tegelwerk met premium materialen en gecertificeerde technieken. Geschikt voor premium projecten in Nederland.',
+        flooring: 'Professionele vloersystemen van premium materialen. Uitstekende betimmering voor appartementen en commerciële objecten.',
+        wallpaper: 'Deskundige decoratieve werkzaamheden en behanginstallatie. Transformatie van ruimten met de grootste aandacht voor detail.',
+        painting: 'Professioneel traditioneel en spuitwerk schilderen. Kwaliteit en precisie op elk oppervlak.',
+        drywall: 'Gipsconstructies en verlaagde plafonds. Moderne architectonische oplossingen voor uw ruimte.',
+        garden: 'Maaien, snoeien, planten en onderhoudswerkzaamheden. We specialiseren ons in tuinwerkzaamheden met klein tot gemiddeld formaat.',
+        demolition: 'Professionele sloopwerkzaamheden en gecontroleerde sloop met klein tot gemiddeld formaat. Altijd met de hoogste veiligheidsnormen.',
+        concrete: 'Betonwerk en betontechniek. Sterke fundamenten en duurzame oppervlakken voor jaren.',
+        concreteFloor: 'Vloeren renovatie tot 50m2. We specialiseren ons in terassen, balkons, garages en bedrijfsruimten.',
       },
     },
     whyUs: {
@@ -280,6 +357,11 @@ export const translations: Record<Language, Translation> = {
       clients: 'Vertrouwen van Bedrijven en Particulieren',
       noDifficulty: 'Wij lossen de moeilijkste uitdagingen op',
       certifications: 'VCA & GPI Veiligheidsnormen',
+      label: 'Advantages',
+      certificationsDesc: 'We adhere to the strictest safety protocols in the Netherlands. VCA and GPI certifications are our baseline, not just an option.',
+      speedDesc: 'Tailored schedules for high-profile clients and complex commercial projects.',
+      qualityDesc: 'Premium materials and certified techniques that set industry standards.',
+      clientsDesc: 'Trust from leading companies and individual investors across the Netherlands.',
     },
     gallery: {
       title: 'Portfolio van Projecten',
@@ -315,6 +397,23 @@ export const translations: Record<Language, Translation> = {
     modal: {
       title: 'Welkom bij K.S. Contractor',
       choose: 'Kies uw taal / Wybierz język komunikacji',
+    },
+    testimonials: {
+      label: 'Testimonials',
+      heading: 'Stemmen',
+      headingHighlight: 'van Cliënten',
+      quote: 'Vertrouwen is het fundament van elke structuur die we bouwen. Dit is wat onze partners zeggen.',
+    },
+    servicesSection: {
+      label: 'Expertise',
+      description: 'We combine traditional craftsmanship with modern engineering to deliver results that exceed expectations.',
+      itemDescription: 'Professional execution using premium materials and certified techniques. Tailored for high-end residential and commercial projects in the Rotterdam area.',
+      learnMore: 'Learn More',
+    },
+    common: {
+      closeMenu: 'Close menu',
+      openMenu: 'Open menu',
+      menu: 'Menu',
     },
   },
 };

@@ -1,9 +1,10 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Globe } from 'lucide-react';
+import ReactDOM from 'react-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { cn } from '../lib/utils';
 
@@ -11,6 +12,7 @@ export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
   const { t, language, setLanguage } = useLanguage();
   const pathnameRaw = usePathname();
   const pathname = pathnameRaw ?? '/';
@@ -78,6 +80,24 @@ export const Navbar: React.FC = () => {
   };
 
   useEffect(() => {
+    // Setup portal root in body
+    let portalElement = document.getElementById('navbar-portal');
+    if (!portalElement) {
+      portalElement = document.createElement('div');
+      portalElement.id = 'navbar-portal';
+      document.body.appendChild(portalElement);
+    }
+    setPortalRoot(portalElement);
+
+    return () => {
+      // Cleanup if empty
+      if (portalElement?.children.length === 0) {
+        portalElement?.remove();
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
       
@@ -125,14 +145,16 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 sm:px-6 w-full overflow-x-hidden',
+    <>
+      <nav
+        className={cn(
+          'fixed top-0 left-0 right-0 z-[100] transition-all duration-300 py-4 px-4 sm:px-6 w-full',
         'pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))]',
-        scrolled ? 'bg-black/80 backdrop-blur-lg border-b border-white/5 py-3' : 'bg-transparent'
+        scrolled ? 'bg-black/80 backdrop-blur-lg border-b border-white/5 py-3' : 'bg-transparent',
+        isOpen ? 'hidden md:block' : 'block'
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between min-w-0">
+      <div className="max-w-7xl mx-auto flex items-center justify-between min-w-0 relative z-10">
         <Link href="/" className="flex items-center gap-2 group min-w-0">
           <div className="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center text-navy font-bold text-xl">
             KS
@@ -173,28 +195,30 @@ export const Navbar: React.FC = () => {
         {/* Mobile Toggle */}
         <button
           type="button"
-          className="md:hidden text-light"
+          className="md:hidden text-light relative z-[101]"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isOpen ? t.common.closeMenu : t.common.openMenu}
           aria-expanded={isOpen}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
+    </nav>
 
-      {/* Mobile Menu */}
+    {/* Mobile Menu Portal */}
+    {portalRoot && ReactDOM.createPortal(
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-[90] md:hidden overflow-x-hidden"
+            className="fixed inset-0 z-[40] md:hidden overflow-x-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.button
               type="button"
-              aria-label="Close menu"
-              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+              aria-label={t.common.closeMenu}
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[40] pointer-events-auto"
               onClick={() => setIsOpen(false)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -206,7 +230,7 @@ export const Navbar: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 320, damping: 35 }}
-              className="absolute top-0 right-0 h-full w-[86vw] max-w-sm bg-navy border-l border-white/10 shadow-2xl overflow-y-auto overflow-x-hidden overscroll-contain"
+              className="fixed top-0 right-0 h-full w-[86vw] max-w-sm bg-navy border-l border-white/10 shadow-2xl overflow-y-auto overflow-x-hidden overscroll-contain z-[9999]"
             >
               <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
                 <div className="flex items-center gap-3">
@@ -217,10 +241,10 @@ export const Navbar: React.FC = () => {
                     <p className="text-base font-display font-black tracking-tight">
                       K.S. <span className="text-gold">Contractor</span>
                     </p>
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-muted">Menu</p>
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-muted">{t.common.menu}</p>
                   </div>
                 </div>
-                <button type="button" className="text-light" onClick={() => setIsOpen(false)} aria-label="Close menu">
+                <button type="button" className="text-light" onClick={() => setIsOpen(false)} aria-label={t.common.closeMenu}>
                   <X size={28} />
                 </button>
               </div>
@@ -257,6 +281,9 @@ export const Navbar: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+      ,
+      portalRoot
+    )}
+  </>
   );
 };

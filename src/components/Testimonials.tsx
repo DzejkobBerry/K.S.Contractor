@@ -32,13 +32,13 @@ export const Testimonials: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 mb-32">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
           <div className="max-w-2xl">
-            <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">Testimonials</span>
+            <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">{t.testimonials.label}</span>
             <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-[0.8]">
-              Client <span className="text-gold-gradient">Voices</span>
+              {t.testimonials.heading} <span className="text-gold-gradient">{t.testimonials.headingHighlight}</span>
             </h2>
           </div>
           <div className="text-muted text-xl font-serif italic max-w-md">
-            "Trust is the foundation of every structure we build. Here is what our partners say."
+            "{t.testimonials.quote}"
           </div>
         </div>
       </div>

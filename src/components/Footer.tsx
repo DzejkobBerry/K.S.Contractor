@@ -6,6 +6,27 @@ import { Facebook, Instagram, Linkedin, Phone, Mail } from 'lucide-react';
 export const Footer: React.FC = () => {
   const { t, language } = useLanguage();
 
+  const FlagIcon = ({ code, className }: { code: 'pl' | 'nl'; className?: string }) => {
+    if (code === 'pl') {
+      return (
+        <svg viewBox="0 0 24 16" className={className} aria-hidden="true">
+          <rect width="24" height="8" x="0" y="0" fill="#ffffff" />
+          <rect width="24" height="8" x="0" y="8" fill="#dc143c" />
+          <rect width="24" height="16" x="0" y="0" fill="none" stroke="rgba(255,255,255,0.18)" />
+        </svg>
+      );
+    }
+
+    return (
+      <svg viewBox="0 0 24 16" className={className} aria-hidden="true">
+        <rect width="24" height="16" x="0" y="0" fill="#21468b" />
+        <rect width="24" height="10.67" x="0" y="0" fill="#ffffff" />
+        <rect width="24" height="5.33" x="0" y="0" fill="#ae1c28" />
+        <rect width="24" height="16" x="0" y="0" fill="none" stroke="rgba(255,255,255,0.18)" />
+      </svg>
+    );
+  };
+
   const hoursTitle = language === 'pl' ? 'Godziny otwarcia' : 'Openingstijden';
   const monFriLabel = language === 'pl' ? 'Pon - Pt:' : 'Ma - Vr:';
   const satLabel = language === 'pl' ? 'Sob:' : 'Za:';
@@ -91,7 +112,13 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="text-gold font-bold uppercase tracking-widest text-xs mb-6">{t.nav.contact}</h4>
+            <div className="flex items-center gap-3 mb-6">
+              <h4 className="text-gold font-bold uppercase tracking-widest text-xs">{t.nav.contact}</h4>
+              <div className="flex items-center gap-2">
+                <FlagIcon code="pl" className="h-3 w-4 rounded-sm" />
+                <FlagIcon code="nl" className="h-3 w-4 rounded-sm" />
+              </div>
+            </div>
             <ul className="space-y-4 text-sm text-muted">
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-gold" />
@@ -99,7 +126,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-gold" />
-                <a href="mailto:info@ks-contractor.nl" className="hover:text-gold transition-colors">info@ks-contractor.nl</a>
+                <a href="mailto:info@k-s-contractor.nl" className="hover:text-gold transition-colors">info@k-s-contractor.nl</a>
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-gold font-bold">VCA</span>

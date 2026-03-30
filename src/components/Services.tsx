@@ -36,14 +36,14 @@ export const Services: React.FC = () => {
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="h-px w-12 bg-gold" />
-              <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">Expertise</span>
+              <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">{t.servicesSection.label}</span>
             </div>
             <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-[0.8]">
               {t.services.title}
             </h2>
           </div>
           <div className="text-muted text-xl font-serif italic max-w-md lg:text-right">
-            "We combine traditional craftsmanship with modern engineering to deliver results that exceed expectations."
+            "{t.servicesSection.description}"
           </div>
         </div>
 
@@ -74,11 +74,11 @@ export const Services: React.FC = () => {
                   </h3>
                   
                   <p className="text-muted font-serif italic text-lg leading-relaxed mb-10 flex-grow">
-                    Professional execution using premium materials and certified techniques. Tailored for high-end residential and commercial projects in the Rotterdam area.
+                    {t.services.descriptions[service.id as keyof typeof t.services.descriptions]}
                   </p>
 
                   <div className="flex items-center gap-3 text-gold text-sm font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0 duration-500">
-                    Learn More <ArrowRight size={18} />
+                    {t.servicesSection.learnMore} <ArrowRight size={18} />
                   </div>
                 </div>
               </div>

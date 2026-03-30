@@ -46,8 +46,8 @@ export const About: React.FC = () => {
                   className="aspect-[3/4] rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden border border-white/10"
                 >
                   <img
-                    src="https://picsum.photos/seed/site1/1000/1400"
-                    alt="Construction Site"
+                    src="https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/20_4_11zon.webp"
+                    alt="Portfolio Project 1"
                     className="w-full h-full object-cover transition-all duration-700"
                     referrerPolicy="no-referrer"
                   />
@@ -67,8 +67,8 @@ export const About: React.FC = () => {
                   className="aspect-[3/4] rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden border border-white/10"
                 >
                   <img
-                    src="https://picsum.photos/seed/interior-work1/1000/1400"
-                    alt="Interior Work"
+                    src="https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/11_13_11zon.webp"
+                    alt="Portfolio Project 2"
                     className="w-full h-full object-cover transition-all duration-700"
                     referrerPolicy="no-referrer"
                   />

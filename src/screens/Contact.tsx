@@ -39,7 +39,7 @@ export const Contact: React.FC = () => {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase italic tracking-tighter leading-tight mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-tight mb-8">
               {t.contact.title}
             </h1>
             <p className="text-muted text-xl font-serif italic mb-16 max-w-md leading-relaxed">
@@ -95,7 +95,7 @@ export const Contact: React.FC = () => {
           >
             <div className="glass-card p-6 sm:p-10 md:p-16 rounded-[2.5rem] sm:rounded-[3rem] border-gold/20 relative">
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/10 rounded-full blur-2xl" />
-              <h2 className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-12 text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-12 text-white">
                 {quoteTitlePrefix}<span className="text-gold">{quoteTitleEmphasis}</span>{quoteTitleSuffix}
               </h2>
               <ContactForm />
