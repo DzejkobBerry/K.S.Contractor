@@ -82,6 +82,7 @@ export interface Translation {
     certifications: string;
     label: string;
     certificationsDesc: string;
+    flexibilityDesc: string;
     speedDesc: string;
     qualityDesc: string;
     clientsDesc: string;
@@ -205,7 +206,7 @@ export const translations: Record<Language, Translation> = {
         tiles: 'Profesjonalne wykonanie prac glazurniczych z użyciem materiałów najwyższej klasy i certyfikowanych technik. Dostosowane do projektów w Holandii.',
         flooring: 'Profesjonalne systemy podłogowe z materiałów najwyższej klasy. Doskonałe wykończenia dla mieszkań i obiektów komercyjnych.',
         wallpaper: 'Fachowe prace dekoracyjne i instalacja tapety. Transformacja pomieszczeń z najwyższą dbałością o detale.',
-        painting: 'Profesjonalne malowanie tradycyjne i natryskowe. Oferujemy malowanie na zewnątrz i wewnątrz. Jakość i precyzja na każdej powierzchni.',
+        painting: 'Profesjonalne malowanie tradycyjne oraz natryskowe wewnątrz i na zewnątrz. Jakość i precyzja na każdej powierzchni.',
         drywall: 'Konstrukcje gipsowe i sufity podwieszane. Nowoczesne rozwiązania architektoniczne dla Twojej przestrzeni.',
         garden: 'Koszenie, przycinanie, sadzenie i prace porządkowe.',
         demolition: 'Profesjonalne prace rozbiórkowe i wyburzenia kontrolowane o małych i średnich gabarytach. Zawsze z najwyższymi standardami bezpieczeństwa.',
@@ -223,6 +224,7 @@ export const translations: Record<Language, Translation> = {
       certifications: 'Standardy Bezpieczeństwa VCA & GPI',
       label: 'Zalety',
       certificationsDesc: 'Stosujemy najsurowsze protokoły bezpieczeństwa w Holandii. Certyfikacje VCA i GPI to dla nas standard, nie opcja.',
+      flexibilityDesc: '"Lojalności nie można nakazać, trzeba na nią zasłużyć"',
       speedDesc: 'Szybka realizacja bez kompromisów na jakości, którą się wyróżniamy.',
       qualityDesc: 'Wyłącznie materiały najwyższej klasy i certyfikowane techniki budowlane.',
       clientsDesc: 'Zaufanie udzielane nam przez firmy i inwestorów prywatnych w całej Holandii.',
@@ -362,6 +364,7 @@ export const translations: Record<Language, Translation> = {
       certifications: 'VCA & GPI Veiligheidsnormen',
       label: 'Advantages',
       certificationsDesc: 'Wij houden ons aan de strengste veiligheidsprotocullen in Nederland. VCA- en GPI-certificeringen zijn voor ons standaard, niet zomaar een optie.',
+      flexibilityDesc: '"Loyaliteit kun je niet eisen; je moet het verdienen."',
       speedDesc: 'Snelle realisatie zonder compromissen op kwaliteit, waar wij voor staan.',
       qualityDesc: 'Materialen van topkwaliteit en gecertificeerde bouwtechnieken die brandnormstellen.',
       clientsDesc: 'Vertrouwen van toonaangevende bedrijven en individuele beleggers in heel Nederland.',

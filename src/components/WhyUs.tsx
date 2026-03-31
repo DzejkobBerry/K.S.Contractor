@@ -54,7 +54,7 @@ export const WhyUs: React.FC = () => {
             <div>
               <h3 className="text-3xl font-bold text-white mb-4 uppercase tracking-tighter">{t.whyUs.flexibility}</h3>
               <p className="text-lg text-muted font-serif italic leading-relaxed">
-                {t.whyUs.speedDesc}
+                {t.whyUs.flexibilityDesc}
               </p>
             </div>
           </div>
