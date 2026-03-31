@@ -9,9 +9,7 @@ export const Contact: React.FC = () => {
   const { t, language } = useLanguage();
 
   const getInTouchLabel = language === 'pl' ? 'Skontaktuj się' : 'Neem contact op';
-  const quoteTitlePrefix = language === 'pl' ? 'Poproś o wycenę ' : 'Vraag een ';
-  const quoteTitleEmphasis = language === 'pl' ? 'Premium' : 'Premium';
-  const quoteTitleSuffix = language === 'pl' ? '' : ' offerte';
+  const quoteTitlePrefix = language === 'pl' ? 'Poproś o wycenę' : 'Vraag een offerte aan';
   const hqLabel = language === 'pl' ? 'Nasza siedziba w Rotterdamie' : 'Ons hoofdkantoor in Rotterdam';
   const certTitle = language === 'pl' ? 'Certyfikaty VCA & GPI' : 'VCA & GPI gecertificeerd';
   const certDesc =
@@ -96,7 +94,7 @@ export const Contact: React.FC = () => {
             <div className="glass-card p-6 sm:p-10 md:p-16 rounded-[2.5rem] sm:rounded-[3rem] border-gold/20 relative">
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/10 rounded-full blur-2xl" />
               <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-12 text-white">
-                {quoteTitlePrefix}<span className="text-gold">{quoteTitleEmphasis}</span>{quoteTitleSuffix}
+                {quoteTitlePrefix}
               </h2>
               <ContactForm />
             </div>

@@ -33,7 +33,7 @@ export const Testimonials: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
           <div className="max-w-2xl">
             <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">{t.testimonials.label}</span>
-            <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-[0.8]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase italic tracking-tighter leading-tight pr-6 sm:pr-8">
               {t.testimonials.heading} <span className="text-gold-gradient">{t.testimonials.headingHighlight}</span>
             </h2>
           </div>

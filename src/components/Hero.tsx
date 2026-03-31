@@ -7,12 +7,12 @@ import Link from 'next/link';
 export const Hero: React.FC = () => {
   const { t, language } = useLanguage();
 
-  const heroKicker = language === 'pl' ? 'Rotterdam • Premium remonty' : 'Rotterdam • Premium bouw';
+  const heroKicker = language === 'pl' ? 'Rotterdam • Remonty' : 'Rotterdam • Bouw';
   const scrollDownLabel = language === 'pl' ? 'Przewiń w dół' : 'Scroll omlaag';
   const safetyTitle = language === 'pl' ? 'Certyfikowany standard bezpieczeństwa' : 'Gecertificeerde veiligheidsnorm';
   const safetyQuote =
     language === 'pl'
-      ? '"Nie tylko budujemy — tworzymy trwałe realizacje z bezkompromisowym naciskiem na bezpieczeństwo i precyzję."'
+      ? '"Każdy remont zaczyna się od marzeń, ale jego sukces zależy od solidnego planu."'
       : '"We bouwen niet alleen; we leveren duurzame projecten met compromisloze veiligheid en precisie."';
 
   return (

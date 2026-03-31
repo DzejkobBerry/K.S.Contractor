@@ -18,7 +18,7 @@ export const FAQ: React.FC = () => {
     <section id="faq" className="py-40 px-6 bg-black relative">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-24">
-          <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">Assurance</span>
+          <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">{t.faq.label}</span>
           <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-[0.8] mb-8">
             {t.faq.title}
           </h2>

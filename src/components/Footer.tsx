@@ -19,9 +19,15 @@ export const Footer: React.FC = () => {
 
     return (
       <svg viewBox="0 0 24 16" className={className} aria-hidden="true">
-        <rect width="24" height="16" x="0" y="0" fill="#21468b" />
-        <rect width="24" height="10.67" x="0" y="0" fill="#ffffff" />
-        <rect width="24" height="5.33" x="0" y="0" fill="#ae1c28" />
+        <rect width="24" height="16" x="0" y="0" fill="#012169" />
+        <polygon points="0,0 3,0 24,13 24,16 21,16 0,3" fill="#ffffff" />
+        <polygon points="24,0 21,0 0,13 0,16 3,16 24,3" fill="#ffffff" />
+        <polygon points="0,0 1.5,0 24,14.5 24,16 22.5,16 0,1.5" fill="#C8102E" />
+        <polygon points="24,0 22.5,0 0,14.5 0,16 1.5,16 24,1.5" fill="#C8102E" />
+        <rect x="0" y="6" width="24" height="4" fill="#ffffff" />
+        <rect x="10" y="0" width="4" height="16" fill="#ffffff" />
+        <rect x="0" y="7" width="24" height="2" fill="#C8102E" />
+        <rect x="11" y="0" width="2" height="16" fill="#C8102E" />
         <rect width="24" height="16" x="0" y="0" fill="none" stroke="rgba(255,255,255,0.18)" />
       </svg>
     );

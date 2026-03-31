@@ -38,6 +38,7 @@ export interface Translation {
     step4: { title: string; desc: string };
   };
   faq: {
+    label: string;
     title: string;
     q1: string;
     a1: string;
@@ -157,17 +158,17 @@ export const translations: Record<Language, Translation> = {
     },
     about: {
       title: 'K.S. Contractor',
-      p1: 'Jesteśmy liderem w sektorze premium usług remontowych w Holandii. Nasza filozofia opiera się na trzech filarach: bezkompromisowej jakości, innowacyjnych technikach budowlanych oraz pełnej transparentności kosztów.',
+      p1: 'Jesteśmy liderem w sektorze usług remontowych w Holandii. Nasza filozofia opiera się na trzech filarach: bezkompromisowej jakości, innowacyjnych technikach budowlanych oraz pełnej transparentności kosztów.',
       p2: 'Od 2023 roku przekształcamy wizje naszych klientów w rzeczywistość, dbając o każdy milimetr powierzchni. Specjalizujemy się w kompleksowych renowacjach apartamentów i obiektów komercyjnych.',
       p3: 'Zlokalizowani w sercu Rotterdamu, dostarczamy usługi na najwyższym europejskim poziomie, łącząc polską pracowitość z holenderskim profesjonalizmem.',
       location: 'Siedziba: Rotterdam',
       since: 'Na rynku od: 2023',
     },
     stats: {
-      projects: 'Realizacji Premium',
+      projects: 'Realizacji',
       clients: 'Zadowolonych Inwestorów',
       experience: 'Lat w Branży',
-      team: 'Ekspertów Budowlanych',
+      team: 'Fachowców Budowlanych',
     },
     process: {
       title: 'Ścieżka Realizacji',
@@ -178,6 +179,7 @@ export const translations: Record<Language, Translation> = {
       step4: { title: 'Gwarancja Jakości', desc: 'Finalny odbiór techniczny i przekazanie dokumentacji.' },
     },
     faq: {
+      label: 'Zaufanie',
       title: 'Strefa Wiedzy',
       q1: 'Czy działacie poza Rotterdamem?',
       a1: 'Tak, przy dużych projektach operujemy na terenie całej Holandii. Małe zlecenia realizujemy w promieniu 50 km od Rotterdamu.',
@@ -187,10 +189,10 @@ export const translations: Record<Language, Translation> = {
       a3: 'Oczywiście. Każda nasza usługa objęta jest pisemną gwarancją jakości, co daje Ci pełne bezpieczeństwo inwestycji.',
     },
     services: {
-      title: 'Zakres Ekspercki',
+      title: 'Fachowy Zakres',
       items: {
         tiles: 'Glazurnictwo',
-        flooring: 'Systemy Podłogowe Premium',
+        flooring: 'Systemy Podłogowe',
         wallpaper: 'Dekoracje Ścienne & Tapety',
         painting: 'Malowanie Natryskowe & Tradycyjne',
         drywall: 'Konstrukcje G-K & Sufity Podwieszane',
@@ -200,28 +202,28 @@ export const translations: Record<Language, Translation> = {
         concreteFloor: 'Renowacja Posadzek Przemysłowych',
       },
       descriptions: {
-        tiles: 'Profesjonalne wykonanie prac glazurniczych z użyciem materiałów premium i certyfikowanych technik. Dostosowane do projektów premium w Holandii.',
+        tiles: 'Profesjonalne wykonanie prac glazurniczych z użyciem materiałów najwyższej klasy i certyfikowanych technik. Dostosowane do projektów w Holandii.',
         flooring: 'Profesjonalne systemy podłogowe z materiałów najwyższej klasy. Doskonałe wykończenia dla mieszkań i obiektów komercyjnych.',
-        wallpaper: 'Ekspertne prace dekoracyjne i instalacja tapety. Transformacja pomieszczeń z najwyższą dbałością o detale.',
-        painting: 'Profesjonalne malowanie tradycyjne i natryskowe. Jakość i precyzja na każdej powierzchni.',
+        wallpaper: 'Fachowe prace dekoracyjne i instalacja tapety. Transformacja pomieszczeń z najwyższą dbałością o detale.',
+        painting: 'Profesjonalne malowanie tradycyjne i natryskowe. Oferujemy malowanie na zewnątrz i wewnątrz. Jakość i precyzja na każdej powierzchni.',
         drywall: 'Konstrukcje gipsowe i sufity podwieszane. Nowoczesne rozwiązania architektoniczne dla Twojej przestrzeni.',
-        garden: 'Koszenie, przycinanie, sadzenie i prace porządkowe. Specjalizujemy się w pracach ogrodowych o małych i średnich gabarytach.',
+        garden: 'Koszenie, przycinanie, sadzenie i prace porządkowe.',
         demolition: 'Profesjonalne prace rozbiórkowe i wyburzenia kontrolowane o małych i średnich gabarytach. Zawsze z najwyższymi standardami bezpieczeństwa.',
-        concrete: 'Prace betonowe i inżynieria betonowa. Solidne fundamenty i powierzchnie wytrzymałe na lata.',
+        concrete: 'Prace betonowe oraz reparacje betonowe wykonywane z największą dbałością o odwzorowanie kształtu uszkodzonego elementu.',
         concreteFloor: 'Renowacja posadzek do 50m2. Specjalizujemy się w tarasach, balkonach, garażach i pomieszczeniach gospodarczych.',
       },
     },
     whyUs: {
       title: 'Dlaczego K.S. Contractor?',
-      flexibility: 'Dostępność 24/7 dla Klientów VIP',
+      flexibility: 'Dostępność 24/7 dla Stałych Klientów',
       speed: 'Ekspresowe Terminy Realizacji',
-      quality: 'Materiały Klasy Premium',
+      quality: 'Materiały Najwyższej Klasy',
       clients: 'Zaufanie Firm i Osób Prywatnych',
       noDifficulty: 'Rozwiązujemy Najtrudniejsze Wyzwania',
       certifications: 'Standardy Bezpieczeństwa VCA & GPI',
       label: 'Zalety',
       certificationsDesc: 'Stosujemy najsurowsze protokoły bezpieczeństwa w Holandii. Certyfikacje VCA i GPI to dla nas standard, nie opcja.',
-      speedDesc: 'Szybkie i elastyczne terminy realizacji dla Twoich projektów.',
+      speedDesc: 'Szybka realizacja bez kompromisów na jakości, którą się wyróżniamy.',
       qualityDesc: 'Wyłącznie materiały najwyższej klasy i certyfikowane techniki budowlane.',
       clientsDesc: 'Zaufanie udzielane nam przez firmy i inwestorów prywatnych w całej Holandii.',
     },
@@ -231,7 +233,7 @@ export const translations: Record<Language, Translation> = {
     },
     contact: {
       title: 'Rozpocznijmy Projekt',
-      subtitle: 'Wypełnij formularz poniżej, a nasz ekspert skontaktuje się z Tobą w ciągu 24 godzin.',
+      subtitle: 'Wypełnij formularz poniżej, a nasz fachowiec skontaktuje się z Tobą w ciągu 24 godzin.',
       form: {
         name: 'Imię i Nazwisko / Nazwa Firmy',
         phone: 'Numer Telefonu',
@@ -241,7 +243,7 @@ export const translations: Record<Language, Translation> = {
         send: 'Wyślij Zapytanie',
         success: 'Dziękujemy! Twoje zapytanie zostało przekazane do działu technicznego.',
         successTitle: 'Wiadomość Wysłana!',
-        successSubtitle: 'Nasz ekspert skontaktuje się z Tobą wkrótce.',
+        successSubtitle: 'Nasz fachowiec skontaktuje się z Tobą wkrótce.',
         close: 'Zamknij',
       },
       details: {
@@ -267,9 +269,9 @@ export const translations: Record<Language, Translation> = {
       quote: 'Zaufanie jest fundamentem każdej budowanej przez nas struktury. Oto co mówią nasi partnerzy.',
     },
     servicesSection: {
-      label: 'Ekspercki Zakres',
+      label: 'Fachowy Zakres',
       description: 'Łączymy tradycyjne rzemiosło z nowoczesną inżynierią, aby dostarczyć rezultaty, które przebiją oczekiwania.',
-      itemDescription: 'Profesjonalne wykonanie z użyciem materiałów premium i certyfikowanych technik. Dostosowane do projektów premium w Holandii.',
+      itemDescription: 'Profesjonalne wykonanie z użyciem materiałów najwyższej klasy i certyfikowanych technik. Dostosowane do projektów w Holandii.',
       learnMore: 'Dowiedz się więcej',
     },
     common: {
@@ -295,17 +297,17 @@ export const translations: Record<Language, Translation> = {
     },
     about: {
       title: 'K.S. Contractor',
-      p1: 'Wij zijn leider in de premium renovatiesector in Nederland. Onze filosofie is gebaseerd op drie pijlers: compromisloze kwaliteit, innovatieve bouwtechnieken en volledige kostentransparantie.',
+      p1: 'Wij zijn leider in de renovatiesector in Nederland. Onze filosofie is gebaseerd op drie pijlers: compromisloze kwaliteit, innovatieve bouwtechnieken en volledige kostentransparantie.',
       p2: 'Sinds 2023 transformeren wij de visies van onze klanten in realiteit, met oog voor elke millimeter oppervlak. Wij zijn gespecialiseerd in complete renovaties van appartementen en commerciële objecten.',
       p3: 'Gevestigd in het hart van Rotterdam, leveren wij diensten op het hoogste Europese niveau, waarbij Poolse werklust wordt gecombineerd met Nederlands professionalisme.',
       location: 'Locatie: Rotterdam',
       since: 'Actief sinds: 2023',
     },
     stats: {
-      projects: 'Premium Projecten',
+      projects: 'Projecten',
       clients: 'Tevreden Investeerders',
       experience: 'Jaar Ervaring',
-      team: 'Bouwexperts',
+      team: 'Bouwfachmannen',
     },
     process: {
       title: 'Realisatiepad',
@@ -316,6 +318,7 @@ export const translations: Record<Language, Translation> = {
       step4: { title: 'Kwaliteitsgarantie', desc: 'Eindinspectie en overdracht van documentatie.' },
     },
     faq: {
+      label: 'Zekerheid',
       title: 'Kenniscentrum',
       q1: 'Werkt u ook buiten Rotterdam?',
       a1: 'Ja, voor grote projecten werken wij door heel Nederland. Kleine opdrachten voeren wij uit binnen een straal van 50 km rond Rotterdam.',
@@ -325,10 +328,10 @@ export const translations: Record<Language, Translation> = {
       a3: 'Natuurlijk. Al onze diensten vallen onder een schriftelijke kwaliteitsgarantie, wat u volledige zekerheid biedt.',
     },
     services: {
-      title: 'Expertisegebied',
+      title: 'Vakgebied',
       items: {
         tiles: 'Tegelwerk',
-        flooring: 'Premium Vloersystemen',
+        flooring: 'Vloersystemen',
         wallpaper: 'Wanddecoratie & Behang',
         painting: 'Spuitwerk & Traditioneel Schilderen',
         drywall: 'Gipsconstructies & Plafonds',
@@ -338,9 +341,9 @@ export const translations: Record<Language, Translation> = {
         concreteFloor: 'Renovatie van Vloeren',
       },
       descriptions: {
-        tiles: 'Professionele tegelwerk met premium materialen en gecertificeerde technieken. Geschikt voor premium projecten in Nederland.',
-        flooring: 'Professionele vloersystemen van premium materialen. Uitstekende betimmering voor appartementen en commerciële objecten.',
-        wallpaper: 'Deskundige decoratieve werkzaamheden en behanginstallatie. Transformatie van ruimten met de grootste aandacht voor detail.',
+        tiles: 'Professionele tegelwerk met materialen van topkwaliteit en gecertificeerde technieken. Geschikt voor projecten in Nederland.',
+        flooring: 'Professionele vloersystemen van topkwaliteit. Uitstekende betimmering voor appartementen en commerciële objecten.',
+        wallpaper: 'Vakkundige decoratieve werkzaamheden en behanginstallatie. Transformatie van ruimten met de grootste aandacht voor detail.',
         painting: 'Professioneel traditioneel en spuitwerk schilderen. Kwaliteit en precisie op elk oppervlak.',
         drywall: 'Gipsconstructies en verlaagde plafonds. Moderne architectonische oplossingen voor uw ruimte.',
         garden: 'Maaien, snoeien, planten en onderhoudswerkzaamheden. We specialiseren ons in tuinwerkzaamheden met klein tot gemiddeld formaat.',
@@ -353,15 +356,15 @@ export const translations: Record<Language, Translation> = {
       title: 'Waarom K.S. Contractor?',
       flexibility: '24/7 Beschikbaarheid voor VIP-klanten',
       speed: 'Express Realisatietermijnen',
-      quality: 'Premium Klasse Materialen',
+      quality: 'Materialen van Topkwaliteit',
       clients: 'Vertrouwen van Bedrijven en Particulieren',
       noDifficulty: 'Wij lossen de moeilijkste uitdagingen op',
       certifications: 'VCA & GPI Veiligheidsnormen',
       label: 'Advantages',
-      certificationsDesc: 'We adhere to the strictest safety protocols in the Netherlands. VCA and GPI certifications are our baseline, not just an option.',
-      speedDesc: 'Tailored schedules for high-profile clients and complex commercial projects.',
-      qualityDesc: 'Premium materials and certified techniques that set industry standards.',
-      clientsDesc: 'Trust from leading companies and individual investors across the Netherlands.',
+      certificationsDesc: 'Wij houden ons aan de strengste veiligheidsprotocullen in Nederland. VCA- en GPI-certificeringen zijn voor ons standaard, niet zomaar een optie.',
+      speedDesc: 'Snelle realisatie zonder compromissen op kwaliteit, waar wij voor staan.',
+      qualityDesc: 'Materialen van topkwaliteit en gecertificeerde bouwtechnieken die brandnormstellen.',
+      clientsDesc: 'Vertrouwen van toonaangevende bedrijven en individuele beleggers in heel Nederland.',
     },
     gallery: {
       title: 'Portfolio van Projecten',
@@ -369,7 +372,7 @@ export const translations: Record<Language, Translation> = {
     },
     contact: {
       title: 'Start uw Project',
-      subtitle: 'Vul het onderstaande formulier in en onze expert neemt binnen 24 uur contact met u op.',
+      subtitle: 'Vul het onderstaande formulier in en onze specialist neemt binnen 24 uur contact met u op.',
       form: {
         name: 'Naam / Bedrijfsnaam',
         phone: 'Telefoonnummer',
@@ -379,7 +382,7 @@ export const translations: Record<Language, Translation> = {
         send: 'Aanvraag Verzenden',
         success: 'Bedankt! Uw aanvraag is doorgegeven aan de technische afdeling.',
         successTitle: 'Bericht Verzonden!',
-        successSubtitle: 'Onze expert neemt binnenkort contact met u op.',
+        successSubtitle: 'Onze specialist neemt binnenkort contact met u op.',
         close: 'Sluiten',
       },
       details: {
@@ -405,13 +408,13 @@ export const translations: Record<Language, Translation> = {
       quote: 'Vertrouwen is het fundament van elke structuur die we bouwen. Dit is wat onze partners zeggen.',
     },
     servicesSection: {
-      label: 'Expertise',
-      description: 'We combine traditional craftsmanship with modern engineering to deliver results that exceed expectations.',
-      itemDescription: 'Professional execution using premium materials and certified techniques. Tailored for high-end residential and commercial projects in the Rotterdam area.',
-      learnMore: 'Learn More',
+      label: 'Vakingebied',
+      description: 'Wij combineren traditioneel vakmanschap met moderne techniek om resultaten te leveren die verwachtingen overtreffen.',
+      itemDescription: 'Professionele uitvoering met materialen van topkwaliteit en gecertificeerde technieken. Geschikt voor residentieel en commercieel projecten in de omgeving Rotterdam.',
+      learnMore: 'Meer informatie',
     },
     common: {
-      closeMenu: 'Close menu',
+      closeMenu: 'Sluit menu',
       openMenu: 'Open menu',
       menu: 'Menu',
     },

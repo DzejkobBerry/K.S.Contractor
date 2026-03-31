@@ -41,7 +41,9 @@ export const LanguageModal: React.FC = () => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             className="glass-card max-w-md w-full p-8 rounded-2xl text-center border-gold/20"
           >
-            <h2 className="text-3xl mb-2 text-gold font-display">K.S. Contractor</h2>
+            <h2 className="text-3xl mb-2 text-gold font-display">
+              K.S. <span className="normal-case">Contractor</span>
+            </h2>
             <p className="text-muted mb-8">{t.modal.choose}</p>
             
             <div className="grid grid-cols-1 gap-4">
