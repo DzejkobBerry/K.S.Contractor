@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 
+export const runtime = 'nodejs';
+
 type ContactPayload = {
   name: string;
   phone: string;
@@ -14,17 +16,18 @@ const isEmail = (v: string) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
 const normalizeEnvValue = (v: string | undefined) => {
-  const trimmed = (v ?? '').toString().trim();
-  if (!trimmed) return '';
-  const first = trimmed[0];
-  const last = trimmed[trimmed.length - 1];
-  if (
-    trimmed.length >= 2 &&
-    ((first === last && (first === '"' || first === "'" || first === '`')))
-  ) {
-    return trimmed.slice(1, -1).trim();
+  let s = (v ?? '').toString().trim();
+  if (!s) return '';
+  for (let i = 0; i < 5; i++) {
+    const first = s[0];
+    const last = s[s.length - 1];
+    if (s.length >= 2 && first === last && (first === '"' || first === "'" || first === '`')) {
+      s = s.slice(1, -1).trim();
+      continue;
+    }
+    break;
   }
-  return trimmed;
+  return s;
 };
 
 const parseHttpsUrl = (raw: string) => {
