@@ -7,11 +7,11 @@ export const About: React.FC = () => {
   const { t, language } = useLanguage();
 
   const sectionLabel = language === 'pl' ? 'O firmie' : 'Over ons';
-  const vipLabel = language === 'pl' ? 'Dostępność dla Stałych Klientów' : 'Beschikbaarheid voor vaste klanten';
+  const vipLabel = language === 'pl' ? 'Dostępność VIP' : 'VIP-beschikbaarheid';
   const safetyLabel = language === 'pl' ? 'Standard bezpieczeństwa' : 'Veiligheidsnorm';
   const locationLabel = language === 'pl' ? 'Lokalizacja' : 'Locatie';
   const establishedLabel = language === 'pl' ? 'Założona' : 'Opgericht';
-  const guaranteedLabel = language === 'pl' ? 'Satysfakcja Gwarantowana' : 'Tevredenheid gegarandeerd';
+  const guaranteedLabel = language === 'pl' ? 'Gwarantowane' : 'Gegarandeerd';
 
   const renderContractorCasing = (text: string) => {
     const key = 'Contractor';
@@ -42,12 +42,12 @@ export const About: React.FC = () => {
               <div className="space-y-6 pt-12">
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
-                  className="aspect-[3/4] rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden border border-white/10 bg-[#000000] flex items-center justify-center"
+                  className="aspect-[3/4] rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden border border-white/10"
                 >
                   <img
-                    src="https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/logo-K.S.webp"
+                    src="https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/20_4_11zon.webp"
                     alt="Portfolio Project 1"
-                    className="w-full h-full object-contain p-2 sm:p-4 transition-all duration-700"
+                    className="w-full h-full object-cover transition-all duration-700"
                     referrerPolicy="no-referrer"
                   />
                 </motion.div>
@@ -66,7 +66,7 @@ export const About: React.FC = () => {
                   className="aspect-[3/4] rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden border border-white/10"
                 >
                   <img
-                    src="https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/Pracownik-K.S.webp"
+                    src="https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/11_13_11zon.webp"
                     alt="Portfolio Project 2"
                     className="w-full h-full object-cover transition-all duration-700"
                     referrerPolicy="no-referrer"
@@ -79,9 +79,9 @@ export const About: React.FC = () => {
             <motion.div 
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -mt-12 glass-dark p-9 rounded-full border-gold/40 z-20 shadow-[0_0_60px_rgba(212,165,44,0.2)] flex-col items-center justify-center text-center w-52 h-52"
+              className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass-dark p-12 rounded-full border-gold/40 z-20 shadow-[0_0_60px_rgba(212,165,44,0.2)] flex-col items-center justify-center text-center w-64 h-64"
             >
-              <CheckCircle2 size={40} className="text-gold mb-3" />
+              <CheckCircle2 size={48} className="text-gold mb-4" />
               <p className="text-[10px] text-gold uppercase tracking-[0.25em] font-bold">{guaranteedLabel}</p>
             </motion.div>
           </motion.div>

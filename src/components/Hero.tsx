@@ -12,7 +12,7 @@ export const Hero: React.FC = () => {
   const safetyTitle = language === 'pl' ? 'Certyfikowany standard bezpieczeństwa' : 'Gecertificeerde veiligheidsnorm';
   const safetyQuote =
     language === 'pl'
-      ? '"Każdy remont zaczyna się od marzeń, ale jego sukces zależy od solidnego planu."'
+      ? '"Nie tylko budujemy — tworzymy trwałe realizacje z bezkompromisowym naciskiem na bezpieczeństwo i precyzję."'
       : '"We bouwen niet alleen; we leveren duurzame projecten met compromisloze veiligheid en precisie."';
 
   return (
