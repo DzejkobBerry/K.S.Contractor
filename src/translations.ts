@@ -208,7 +208,7 @@ export const translations: Record<Language, Translation> = {
         wallpaper: 'Fachowe prace dekoracyjne i instalacja tapety. Transformacja pomieszczeń z najwyższą dbałością o detale.',
         painting: 'Profesjonalne malowanie tradycyjne i natryskowe, wewnątrz i na zewnątrz. Jakość i precyzja na każdej powierzchni.',
         drywall: 'Konstrukcje gipsowe i sufity podwieszane. Nowoczesne rozwiązania architektoniczne dla Twojej przestrzeni.',
-        garden: 'Koszenie, przycinanie, sadzenie i prace porządkowe. Specjalizujemy się w pracach ogrodowych o małych i średnich gabarytach.',
+        garden: 'Koszenie, przycinanie, sadzenie i prace porządkowe.',
         demolition: 'Profesjonalne prace rozbiórkowe i wyburzenia kontrolowane o małych i średnich gabarytach. Zawsze z najwyższymi standardami bezpieczeństwa.',
         concrete: 'Prace betonowe oraz reperacje betonowe wykonywane z największą dbałością o odwzorowanie kształtu uszkodzonego elementu.',
         concreteFloor: 'Renowacja posadzek do 50m2. Specjalizujemy się w tarasach, balkonach, garażach i pomieszczeniach gospodarczych.',
