@@ -6,13 +6,28 @@ import { Clock, Zap, Award, ShieldCheck } from 'lucide-react';
 export const WhyUs: React.FC = () => {
   const { t } = useLanguage();
 
+  const renderContractorCasing = (text: string) => {
+    const key = 'Contractor';
+    const index = text.indexOf(key);
+    if (index === -1) return text;
+    const before = text.slice(0, index);
+    const after = text.slice(index + key.length);
+    return (
+      <>
+        {before}
+        <span className="normal-case">{key}</span>
+        {after}
+      </>
+    );
+  };
+
   return (
     <section id="why-us" className="py-40 px-6 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24">
           <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">{t.whyUs.label}</span>
           <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-[0.8]">
-            {t.whyUs.title}
+            {renderContractorCasing(t.whyUs.title)}
           </h2>
         </div>
 
@@ -39,7 +54,7 @@ export const WhyUs: React.FC = () => {
             <div>
               <h3 className="text-3xl font-bold text-white mb-4 uppercase tracking-tighter">{t.whyUs.flexibility}</h3>
               <p className="text-lg text-muted font-serif italic leading-relaxed">
-                {t.whyUs.speedDesc}
+                {t.whyUs.flexibilityDesc}
               </p>
             </div>
           </div>

@@ -75,6 +75,7 @@ export interface Translation {
   whyUs: {
     title: string;
     flexibility: string;
+    flexibilityDesc: string;
     speed: string;
     quality: string;
     clients: string;
@@ -205,17 +206,17 @@ export const translations: Record<Language, Translation> = {
         tiles: 'Profesjonalne wykonanie prac glazurniczych z użyciem materiałów najwyższej klasy i certyfikowanych technik. Dostosowane do projektów w Holandii.',
         flooring: 'Profesjonalne systemy podłogowe z materiałów najwyższej klasy. Doskonałe wykończenia dla mieszkań i obiektów komercyjnych.',
         wallpaper: 'Fachowe prace dekoracyjne i instalacja tapety. Transformacja pomieszczeń z najwyższą dbałością o detale.',
-        painting: 'Profesjonalne malowanie tradycyjne i natryskowe. Jakość i precyzja na każdej powierzchni.',
+        painting: 'Profesjonalne malowanie tradycyjne i natryskowe, wewnątrz i na zewnątrz. Jakość i precyzja na każdej powierzchni.',
         drywall: 'Konstrukcje gipsowe i sufity podwieszane. Nowoczesne rozwiązania architektoniczne dla Twojej przestrzeni.',
         garden: 'Koszenie, przycinanie, sadzenie i prace porządkowe. Specjalizujemy się w pracach ogrodowych o małych i średnich gabarytach.',
         demolition: 'Profesjonalne prace rozbiórkowe i wyburzenia kontrolowane o małych i średnich gabarytach. Zawsze z najwyższymi standardami bezpieczeństwa.',
-        concrete: 'Prace betonowe i inżynieria betonowa. Solidne fundamenty i powierzchnie wytrzymałe na lata.',
+        concrete: 'Prace betonowe oraz reperacje betonowe wykonywane z największą dbałością o odwzorowanie kształtu uszkodzonego elementu.',
         concreteFloor: 'Renowacja posadzek do 50m2. Specjalizujemy się w tarasach, balkonach, garażach i pomieszczeniach gospodarczych.',
       },
     },
     whyUs: {
       title: 'Dlaczego K.S. Contractor?',
-      flexibility: 'Dostępność 24/7 dla Klientów VIP',
+      flexibility: 'Dostępność 24/7 dla stałych klientów',
       speed: 'Ekspresowe Terminy Realizacji',
       quality: 'Materiały Najwyższej Klasy',
       clients: 'Zaufanie Firm i Osób Prywatnych',
@@ -223,6 +224,7 @@ export const translations: Record<Language, Translation> = {
       certifications: 'Standardy Bezpieczeństwa VCA & GPI',
       label: 'Zalety',
       certificationsDesc: 'Stosujemy najsurowsze protokoły bezpieczeństwa w Holandii. Certyfikacje VCA i GPI to dla nas standard, nie opcja.',
+      flexibilityDesc: 'Lojalności nie można nakazać, trzeba na nią zasłużyć.',
       speedDesc: 'Szybka realizacja bez kompromisów na jakości, którą się wyróżniamy.',
       qualityDesc: 'Wyłącznie materiały najwyższej klasy i certyfikowane techniki budowlane.',
       clientsDesc: 'Zaufanie udzielane nam przez firmy i inwestorów prywatnych w całej Holandii.',
@@ -354,7 +356,7 @@ export const translations: Record<Language, Translation> = {
     },
     whyUs: {
       title: 'Waarom K.S. Contractor?',
-      flexibility: '24/7 Bereikbaarheid voor VIP-klanten',
+      flexibility: '24/7 bereikbaarheid voor vaste klanten',
       speed: 'Snelle Projectrealisatie',
       quality: 'Premium Materialen',
       clients: 'Vertrouwen van Professionals',
@@ -362,6 +364,7 @@ export const translations: Record<Language, Translation> = {
       certifications: 'VCA & GPI Gecertificeerd',
       label: 'Voordelen',
       certificationsDesc: 'Wij volgen de strengste veiligheidsnormen van Nederland. VCA- en GPI-certificering zijn niet zomaar bijzaken—het is ons standaard.',
+      flexibilityDesc: 'Loyaliteit kun je niet afdwingen, je moet het verdienen.',
       speedDesc: 'Snelle afronding zonder concessies op kwaliteit.',
       qualityDesc: 'Alleen premiummateriaal en erkende bouwmethodieken.',
       clientsDesc: 'Vertrouwd door leidende bedrijven en particulieren in heel Nederland.',
