@@ -76,7 +76,13 @@ export const Footer: React.FC = () => {
               {t.about.p1}
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-all">
+              <a
+                href="https://www.facebook.com/profile.php?id=61583215491918&rdid=PWVzNTOuDuIjQU7l&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Ra61cxAPJ%2F"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-all"
+              >
                 <Facebook size={18} />
               </a>
               <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-all">
