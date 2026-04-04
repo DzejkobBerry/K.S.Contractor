@@ -11,7 +11,7 @@ export const About: React.FC = () => {
   const safetyLabel = language === 'pl' ? 'Standard bezpieczeństwa' : 'Veiligheidsnorm';
   const locationLabel = language === 'pl' ? 'Lokalizacja' : 'Locatie';
   const establishedLabel = language === 'pl' ? 'Założona' : 'Opgericht';
-  const guaranteedLabel = language === 'pl' ? 'Gwarantowane' : 'Gegarandeerd';
+  const guaranteedLabel = language === 'pl' ? 'Satysfakcja gwarantowana' : 'Tevredenheid gegarandeerd';
 
   const renderContractorCasing = (text: string) => {
     const key = 'Contractor';
