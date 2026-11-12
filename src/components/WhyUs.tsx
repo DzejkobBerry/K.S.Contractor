@@ -26,7 +26,10 @@ export const WhyUs: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24">
           <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 block">{t.whyUs.label}</span>
-          <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter leading-[0.8]">
+          <h2 className="whitespace-nowrap text-3xl font-black uppercase italic leading-[0.8] tracking-tighter sm:hidden">
+            K.S. <span className="normal-case">Contractor</span>?
+          </h2>
+          <h2 className="hidden text-5xl font-black uppercase italic leading-[0.8] tracking-tighter sm:block md:text-7xl">
             {renderContractorCasing(t.whyUs.title)}
           </h2>
         </div>
@@ -73,14 +76,14 @@ export const WhyUs: React.FC = () => {
 
           <div className="md:col-span-8 glass-card p-12 rounded-[3.5rem] border-gold/20 flex flex-col justify-between group bg-gold/5">
             <div className="flex justify-between items-start mb-12">
-              <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy transition-all duration-500">
-                <Award size={40} />
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-full bg-white/5 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy transition-all duration-500">
+                <Award size={32} className="md:w-10 md:h-10" />
               </div>
-              <span className="text-white/10 font-mono text-6xl font-black">04</span>
+              <span className="text-white/10 font-mono text-4xl md:text-6xl font-black">04</span>
             </div>
             <div>
-              <h3 className="text-5xl font-bold text-white mb-8 uppercase tracking-tighter">{t.whyUs.quality}</h3>
-              <p className="text-2xl text-muted font-serif italic leading-relaxed max-w-2xl">
+              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-8 uppercase tracking-tighter">{t.whyUs.quality}</h3>
+              <p className="text-lg md:text-2xl text-muted font-serif italic leading-relaxed max-w-2xl">
                 {t.whyUs.qualityDesc}
               </p>
             </div>
