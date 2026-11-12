@@ -1,132 +1,143 @@
 "use client";
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 import { ContactForm } from '../components/ContactForm';
-import { MapPin, Phone, Mail, Clock, ShieldCheck } from 'lucide-react';
+import { Clock, MapPin, ShieldCheck } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const { t, language } = useLanguage();
+  const shouldReduceMotion = useReducedMotion();
 
-  const getInTouchLabel = language === 'pl' ? 'Skontaktuj się' : 'Neem contact op';
-  const quoteTitlePrefix = language === 'pl' ? 'Poproś o wycenę' : 'Vraag een offerte aan';
-  const hqLabel = language === 'pl' ? 'Nasza siedziba w Rotterdamie' : 'Ons hoofdkantoor in Rotterdam';
-  const certTitle = language === 'pl' ? 'Certyfikaty VCA & GPI' : 'VCA & GPI gecertificeerd';
+  const getInTouchLabel = language === 'pl' ? 'Skontaktuj się' : 'Get in touch';
+  const quoteTitlePrefix = language === 'pl' ? 'Poproś o wycenę' : 'Request a quote';
+  const hqLabel = language === 'pl' ? 'Nasza siedziba w Radomiu' : 'Our office in Radom';
+  const certTitle = language === 'pl' ? 'Standardy realizacji' : 'Project standards';
   const certDesc =
     language === 'pl'
-      ? 'Gwarantujemy profesjonalne standardy bezpieczeństwa na wszystkich placach budowy w Holandii.'
-      : 'Professionele veiligheidsnormen gegarandeerd op alle bouwplaatsen in Nederland.';
+      ? 'Zapewniamy bezpieczną, uporządkowaną i staranną realizację każdego zlecenia.'
+      : 'We ensure safe, organised, and careful delivery of every project.';
+
+  const reveal = (delay = 0) => ({
+    initial: shouldReduceMotion ? false : { opacity: 0, y: 28 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.18 },
+    transition: { duration: shouldReduceMotion ? 0 : 0.65, delay, ease: [0.16, 1, 0.3, 1] as const },
+  });
 
   return (
-    <div id="contact" className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 min-h-screen relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gold/5 rounded-full blur-[100px] -z-10" />
+    <main id="contact" className="relative min-h-screen overflow-hidden bg-black px-4 pb-20 pt-28 sm:px-6 sm:pb-28 sm:pt-32 lg:pt-36">
+      <div className="pointer-events-none absolute -right-40 top-0 h-[560px] w-[560px] rounded-full bg-gold/[0.055] blur-[140px]" />
+      <div className="pointer-events-none absolute -left-32 top-[48%] h-[420px] w-[420px] rounded-full bg-gold/[0.035] blur-[120px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:linear-gradient(to_bottom,black,transparent_65%)]" />
 
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-5"
-          >
-            <div className="flex items-center gap-4 mb-8">
-              <div className="h-px w-12 bg-gold" />
-              <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs">
-                {getInTouchLabel}
-              </span>
-            </div>
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <motion.header {...reveal()} className="mb-12 max-w-3xl sm:mb-16 lg:mb-20">
+          <div className="mb-6 flex items-center gap-4">
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: 48 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.7 }}
+              className="h-px bg-gold"
+            />
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-gold">{getInTouchLabel}</span>
+          </div>
+          <h1 className="mb-7 text-4xl font-black uppercase italic leading-[0.9] tracking-tighter sm:text-5xl md:text-7xl">
+            {t.contact.title}
+          </h1>
+          <p className="max-w-2xl font-serif text-lg italic leading-relaxed text-muted sm:text-xl md:text-2xl">
+            {t.contact.subtitle}
+          </p>
+        </motion.header>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-tight mb-8">
-              {t.contact.title}
-            </h1>
-            <p className="text-muted text-xl font-serif italic mb-16 max-w-md leading-relaxed">
-              {t.contact.subtitle}
-            </p>
-
-            <div className="space-y-12">
-              <div className="group flex gap-8">
-                <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy transition-all duration-500 shrink-0">
-                  <MapPin size={32} />
+        <div className="grid min-w-0 grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-8">
+          <div className="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-1">
+            <motion.article
+              {...reveal(shouldReduceMotion ? 0 : 0.08)}
+              className="group relative min-w-0 overflow-hidden rounded-[2rem] border border-gold/20 bg-gradient-to-br from-gold/[0.08] via-white/[0.025] to-transparent p-6 sm:col-span-2 sm:p-8 lg:col-span-1 lg:p-9"
+            >
+              <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full border border-gold/15 transition-transform duration-700 group-hover:scale-110" />
+              <div className="relative z-10 flex flex-col gap-5 sm:flex-row sm:items-start">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-gold/25 bg-gold/[0.08] text-gold transition-all duration-500 group-hover:-rotate-6 group-hover:bg-gold group-hover:text-black motion-reduce:transform-none">
+                  <MapPin size={27} />
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-3 uppercase tracking-tight">{t.contact.details.location}</h3>
-                  <div className="space-y-2 text-muted text-lg">
-                    <p className="font-bold text-white text-xl">{t.contact.details.area}</p>
+                <div className="min-w-0 break-words">
+                  <h2 className="mb-4 text-xl font-bold leading-tight text-white sm:text-2xl">{t.contact.details.location}</h2>
+                  <div className="space-y-2 font-serif text-base italic leading-relaxed text-muted sm:text-lg">
+                    <p className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gold/80">{t.contact.details.area}</p>
                     <p>{t.contact.details.largeProjects}</p>
                     <p>{t.contact.details.smallProjects}</p>
                   </div>
                 </div>
               </div>
+            </motion.article>
 
-              <div className="group flex gap-8">
-                <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy transition-all duration-500 shrink-0">
-                  <Clock size={32} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-3 uppercase tracking-tight">{t.contact.details.hours}</h3>
-                  <div className="space-y-2 text-muted text-lg">
-                    <p>{t.contact.details.weekdays}</p>
-                    <p>{t.contact.details.saturday}</p>
-                    <p>{t.contact.details.sunday}</p>
-                  </div>
-                </div>
+            <motion.article
+              {...reveal(shouldReduceMotion ? 0 : 0.15)}
+              className="group min-w-0 rounded-[2rem] border border-white/10 bg-white/[0.025] p-6 sm:p-8 lg:p-9"
+            >
+              <div className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.035] text-gold transition-all duration-500 group-hover:-rotate-6 group-hover:border-gold/40 group-hover:bg-gold group-hover:text-black motion-reduce:transform-none">
+                <Clock size={27} />
               </div>
-
-              <div className="group flex gap-8">
-                <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy transition-all duration-500 shrink-0">
-                  <ShieldCheck size={32} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-3 uppercase tracking-tight">{certTitle}</h3>
-                  <p className="text-muted text-lg leading-relaxed">{certDesc}</p>
-                </div>
+              <h2 className="mb-4 text-xl font-bold leading-tight text-white sm:text-2xl">{t.contact.details.hours}</h2>
+              <div className="space-y-2 break-words font-serif text-base italic leading-relaxed text-muted sm:text-lg">
+                <p>{t.contact.details.weekdays}</p>
+                <p>{t.contact.details.saturday}</p>
+                <p>{t.contact.details.sunday}</p>
               </div>
-            </div>
-          </motion.div>
+            </motion.article>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-7"
+            <motion.article
+              {...reveal(shouldReduceMotion ? 0 : 0.22)}
+              className="group min-w-0 rounded-[2rem] border border-white/10 bg-white/[0.025] p-6 sm:p-8 lg:p-9"
+            >
+              <div className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.035] text-gold transition-all duration-500 group-hover:-rotate-6 group-hover:border-gold/40 group-hover:bg-gold group-hover:text-black motion-reduce:transform-none">
+                <ShieldCheck size={27} />
+              </div>
+              <h2 className="mb-4 text-xl font-bold leading-tight text-white sm:text-2xl">{certTitle}</h2>
+              <p className="break-words font-serif text-base italic leading-relaxed text-muted sm:text-lg">{certDesc}</p>
+            </motion.article>
+          </div>
+
+          <motion.section
+            {...reveal(shouldReduceMotion ? 0 : 0.12)}
+            className="relative min-w-0 overflow-hidden rounded-[2rem] border border-gold/20 bg-gradient-to-br from-white/[0.045] via-white/[0.018] to-gold/[0.035] p-5 sm:p-8 md:p-10 lg:p-12"
           >
-            <div className="glass-card p-6 sm:p-10 md:p-16 rounded-[2.5rem] sm:rounded-[3rem] border-gold/20 relative">
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/10 rounded-full blur-2xl" />
-              <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-12 text-white">
-                {quoteTitlePrefix}
-              </h2>
+            <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full border border-gold/10" />
+            <div className="pointer-events-none absolute right-8 top-8 h-2 w-2 rounded-full bg-gold shadow-[0_0_24px_rgba(212,165,44,0.8)]" />
+            <div className="relative z-10">
+              <div className="mb-8 flex items-center justify-between gap-4 sm:mb-10">
+                <h2 className="min-w-0 text-2xl font-black uppercase italic leading-tight tracking-tighter text-white sm:text-3xl lg:text-4xl">
+                  {quoteTitlePrefix}
+                </h2>
+                <span className="hidden font-mono text-xs tracking-[0.24em] text-white/20 sm:block">01 / 01</span>
+              </div>
               <ContactForm />
             </div>
-          </motion.div>
+          </motion.section>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-32 relative"
-        >
-          <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex items-center gap-4 px-8 py-4 bg-navy border border-gold/30 rounded-full z-20 shadow-[0_0_40px_rgba(212,165,44,0.2)]">
-            <div className="w-3 h-3 bg-gold rounded-full animate-pulse" />
-            <span className="text-gold font-bold uppercase tracking-widest text-sm">{hqLabel}</span>
+        <motion.section {...reveal()} className="relative mt-16 overflow-hidden rounded-[2rem] border border-gold/20 sm:mt-20 md:rounded-[2.5rem] lg:mt-24">
+          <div className="absolute left-4 top-4 z-20 flex max-w-[calc(100%-2rem)] items-center gap-3 rounded-full border border-gold/30 bg-black/80 px-4 py-3 shadow-[0_0_35px_rgba(212,165,44,0.16)] backdrop-blur-xl sm:left-6 sm:top-6 sm:px-6">
+            <div className="h-2.5 w-2.5 shrink-0 animate-pulse rounded-full bg-gold" />
+            <span className="min-w-0 break-words text-[10px] font-bold uppercase leading-relaxed tracking-[0.18em] text-gold sm:text-xs sm:tracking-widest">{hqLabel}</span>
           </div>
-          
-          <div className="rounded-[2.5rem] sm:rounded-[4rem] overflow-hidden h-[360px] sm:h-[500px] border border-gold/20 relative group">
-            <div className="absolute inset-0 bg-navy/40 group-hover:bg-transparent transition-colors duration-700 pointer-events-none z-10" />
+          <div className="group relative h-[320px] sm:h-[400px] lg:h-[480px]">
+            <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/35 via-transparent to-black/15 transition-opacity duration-700 group-hover:opacity-40" />
             <iframe
               title="Google Maps"
               width="100%"
               height="100%"
               frameBorder="0"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d157606.3533471465!2d4.341457106720525!3d51.92807123184617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c4335e5d199201%3A0xaf0d35a716c89720!2sRotterdam%2C%20Netherlands!5e0!3m2!1sen!2spl!4v1711354821000!5m2!1sen!2spl"
+              src="https://www.google.com/maps?q=Radom%2C%20Polska&output=embed"
               allowFullScreen
-              className="relative z-0 grayscale invert contrast-[1.2] brightness-[0.8] group-hover:grayscale-0 group-hover:invert-0 group-hover:contrast-100 group-hover:brightness-100 transition-all duration-1000"
-            ></iframe>
+              className="block h-full w-full grayscale-[0.65] brightness-[0.72] contrast-[1.08] transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100"
+            />
           </div>
-        </motion.div>
+        </motion.section>
       </div>
-    </div>
+    </main>
   );
 };
+
 export default Contact;

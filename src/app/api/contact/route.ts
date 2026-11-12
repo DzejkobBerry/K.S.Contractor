@@ -66,11 +66,13 @@ const isHtmlLike = (contentType: string, bodySnippet: string) => {
 const forwardToBloompixel = async (args: {
   url: string;
   apiKey: string;
+  origin: string;
   payload: { name: string; email: string; message: string; subject: string; phone: string };
 }) => {
   const commonHeaders = {
     Authorization: `Bearer ${args.apiKey}`,
     'X-API-Key': args.apiKey,
+    Origin: args.origin,
   } as const;
 
   const tryJson = async () => {
@@ -145,10 +147,12 @@ const forwardToBloompixel = async (args: {
 };
 
 export async function POST(req: Request) {
+  const isEnglish = req.headers.get('accept-language')?.toLowerCase().startsWith('en') ?? false;
+  const localize = (pl: string, en: string) => (isEnglish ? en : pl);
   const apiKey = normalizeEnvValue(process.env.BLOOMPIXEL_API_KEY);
   if (!apiKey) {
     return NextResponse.json(
-      { ok: false, success: false, error: 'Brak BLOOMPIXEL_API_KEY w konfiguracji serwera.' },
+      { ok: false, success: false, error: localize('Brak BLOOMPIXEL_API_KEY w konfiguracji serwera.', 'The server configuration is incomplete.') },
       { status: 500 }
     );
   }
@@ -162,7 +166,10 @@ export async function POST(req: Request) {
       {
         ok: false,
         success: false,
-        error: 'Brak BLOOMPIXEL_API_SEND_URL (lub fallback: bloompixel_api_url) w konfiguracji serwera.',
+        error: localize(
+          'Brak BLOOMPIXEL_API_SEND_URL (lub fallback: bloompixel_api_url) w konfiguracji serwera.',
+          'The server configuration is incomplete.'
+        ),
       },
       { status: 500 }
     );
@@ -175,7 +182,7 @@ export async function POST(req: Request) {
     if (fallbackUrlEnv) fallbackUrlParsed = parseHttpsUrl(fallbackUrlEnv);
   } catch {
     return NextResponse.json(
-      { ok: false, success: false, error: 'Niepoprawny URL Bloompixel (musi być poprawny i zaczynać się od https://).' },
+      { ok: false, success: false, error: localize('Niepoprawny URL Bloompixel (musi być poprawny i zaczynać się od https://).', 'The server configuration is invalid.') },
       { status: 500 }
     );
   }
@@ -196,7 +203,7 @@ export async function POST(req: Request) {
     data = await req.json();
   } catch {
     return NextResponse.json(
-      { ok: false, message: 'Nieprawidłowy format danych.' },
+      { ok: false, message: localize('Nieprawidłowy format danych.', 'Invalid request data format.') },
       { status: 400 }
     );
   }
@@ -221,6 +228,8 @@ export async function POST(req: Request) {
 
   try {
     const payload = { name, email, message, subject, phone };
+    const configuredOrigin = normalizeEnvValue(process.env.BLOOMPIXEL_FORM_ORIGIN);
+    const requestOrigin = configuredOrigin || normalizeEnvValue(req.headers.get('origin') ?? undefined) || new URL(req.url).origin;
 
     let lastFailure: ForwardFailure | null = null;
     let lastUrlUsed: string | null = null;
@@ -231,7 +240,7 @@ export async function POST(req: Request) {
       lastUrlUsed = url;
       console.info(`[contact] forwarding -> ${url}`);
 
-      const result = await forwardToBloompixel({ url, apiKey, payload });
+      const result = await forwardToBloompixel({ url, apiKey, origin: requestOrigin, payload });
       if (result.ok) {
         console.info(`[contact] forwarded ok`);
         return NextResponse.json({ ok: true, success: true, forwarded: true });
@@ -244,8 +253,7 @@ export async function POST(req: Request) {
 
       lastFailure = result.failure;
 
-      const isLikelyWwwFormIssue =
-        isHtml || [403, 405].includes(result.failure.status);
+      const isLikelyWwwFormIssue = isHtml || result.failure.status === 405;
 
       if (i === 0 && sendUrlParsed && url === sendUrlParsed.toString() && isLikelyWwwFormIssue) {
         firstWasWww = true;
@@ -256,7 +264,7 @@ export async function POST(req: Request) {
 
     if (!lastFailure) {
       return NextResponse.json(
-        { ok: false, success: false, error: 'Nie udało się wysłać wiadomości.' },
+        { ok: false, success: false, error: localize('Nie udało się wysłać wiadomości.', 'The message could not be sent.') },
         { status: 502 }
       );
     }
@@ -267,8 +275,10 @@ export async function POST(req: Request) {
           ok: false,
           success: false,
           forwarded: false,
-          error:
+          error: localize(
             'BLOOMPIXEL_API_SEND_URL wskazuje na stronę WWW, a nie API – ustaw prawidłowy endpoint.',
+            'The message service endpoint is configured incorrectly.'
+          ),
           details: { status: lastFailure.status, contentType: lastFailure.contentType, urlUsed: lastUrlUsed },
         },
         { status: 502 }
@@ -280,14 +290,14 @@ export async function POST(req: Request) {
         ok: false,
         success: false,
         forwarded: false,
-        error: 'Forwarding do Bloompixel nie powiódł się.',
+        error: localize('Forwarding do Bloompixel nie powiódł się.', 'The message could not be forwarded to the delivery service.'),
         details: { status: lastFailure.status, contentType: lastFailure.contentType, urlUsed: lastUrlUsed },
       },
       { status: 502 }
     );
   } catch {
     return NextResponse.json(
-      { ok: false, success: false, error: 'Błąd połączenia z serwisem.' },
+      { ok: false, success: false, error: localize('Błąd połączenia z serwisem.', 'Could not connect to the message service.') },
       { status: 500 }
     );
   }

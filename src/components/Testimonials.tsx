@@ -9,19 +9,19 @@ export const Testimonials: React.FC = () => {
   const reviews = {
     pl: [
       { name: 'Marek Wiśniewski', text: 'Pełen profesjonalizm. Remont łazienki wykonany perfekcyjnie i w terminie. Polecam!', rating: 5, role: 'Właściciel Apartamentu' },
-      { name: 'Anna Kowalska', text: 'Bardzo rzetelna firma. Panowie kładli u nas panele i malowali ściany. Wszystko wygląda świetnie.', rating: 5, role: 'Inwestor Prywatny' },
+      { name: 'Anna Kowalska', text: 'Bardzo rzetelny wykonawca. Ułożył u nas panele i pomalował ściany. Wszystko wygląda świetnie.', rating: 5, role: 'Inwestor Prywatny' },
       { name: 'Janusz Nowak', text: 'Szybka wycena i jeszcze szybsza realizacja. Bardzo elastyczne godziny pracy.', rating: 5, role: 'Manager Projektu' },
       { name: 'Katarzyna Dąbrowska', text: 'Niesamowita dbałość o detale. Wykończenie wnętrz przerosło moje oczekiwania.', rating: 5, role: 'Projektantka Wnętrz' },
-      { name: 'Robert Zieliński', text: 'Solidna ekipa, czysto i sprawnie. Najlepszy wykonawca w Rotterdamie.', rating: 5, role: 'Deweloper' },
+      { name: 'Robert Zieliński', text: 'Solidny wykonawca, czysto i sprawnie. Zdecydowanie polecam w Radomiu i okolicach.', rating: 5, role: 'Deweloper' },
       { name: 'Magdalena Lis', text: 'Bardzo pomocni przy wyborze materiałów. Efekt końcowy jest po prostu bajeczny.', rating: 5, role: 'Właścicielka Domu' },
     ],
-    nl: [
-      { name: 'Pieter de Vries', text: 'Zeer professioneel. De badkamerrenovatie is perfect en op tijd uitgevoerd. Aanbevolen!', rating: 5, role: 'Appartement Eigenaar' },
-      { name: 'Sanne Bakker', text: 'Zeer betrouwbaar bedrijf. Ze hebben bij ons laminaat gelegd en de muren geschilderd. Alles ziet er geweldig uit.', rating: 5, role: 'Particuliere Belegger' },
-      { name: 'Jan Jansen', text: 'Snelle offerte en nog snellere uitvoering. Zeer flexibele werktijden.', rating: 5, role: 'Project Manager' },
-      { name: 'Karin de Boer', text: 'Ongelooflijke aandacht voor detail. De interieurafwerking overtrof mijn verwachtingen.', rating: 5, role: 'Interieurontwerper' },
-      { name: 'Robert de Jong', text: 'Solide team, schoon en efficiënt. De beste aannemer in Rotterdam.', rating: 5, role: 'Ontwikkelaar' },
-      { name: 'Magdalena de Wit', text: 'Zeer behulpzaam bij de materiaalkeuze. Het eindresultaat is simpelweg fantastisch.', rating: 5, role: 'Huiseigenaar' },
+    en: [
+      { name: 'Marek Wiśniewski', text: 'Complete professionalism. The bathroom renovation was completed perfectly and on time. Highly recommended!', rating: 5, role: 'Apartment Owner' },
+      { name: 'Anna Kowalska', text: 'A very reliable contractor. He installed our flooring and painted the walls. Everything looks excellent.', rating: 5, role: 'Private Investor' },
+      { name: 'Janusz Nowak', text: 'A quick quote and even faster completion. Very flexible working hours.', rating: 5, role: 'Project Manager' },
+      { name: 'Katarzyna Dąbrowska', text: 'Incredible attention to detail. The interior finish exceeded my expectations.', rating: 5, role: 'Interior Designer' },
+      { name: 'Robert Zieliński', text: 'A reliable contractor who works cleanly and efficiently. I highly recommend him in Radom and the surrounding area.', rating: 5, role: 'Property Developer' },
+      { name: 'Magdalena Lis', text: 'Very helpful when choosing materials. The final result is simply fantastic.', rating: 5, role: 'Homeowner' },
     ]
   };
 

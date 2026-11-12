@@ -6,7 +6,7 @@ import { useLanguage } from '../context/LanguageContext';
 export const LanguageModal: React.FC = () => {
   const { showModal, setLanguage, t } = useLanguage();
 
-  const FlagIcon = ({ code }: { code: 'pl' | 'nl' }) => {
+  const FlagIcon = ({ code }: { code: 'pl' | 'en' }) => {
     if (code === 'pl') {
       return (
         <svg viewBox="0 0 24 16" className="h-5 w-8 rounded-sm" aria-hidden="true">
@@ -19,9 +19,15 @@ export const LanguageModal: React.FC = () => {
 
     return (
       <svg viewBox="0 0 24 16" className="h-5 w-8 rounded-sm" aria-hidden="true">
-        <rect width="24" height="16" x="0" y="0" fill="#21468b" />
-        <rect width="24" height="10.67" x="0" y="0" fill="#ffffff" />
-        <rect width="24" height="5.33" x="0" y="0" fill="#ae1c28" />
+        <rect width="24" height="16" x="0" y="0" fill="#012169" />
+        <polygon points="0,0 3,0 24,13 24,16 21,16 0,3" fill="#ffffff" />
+        <polygon points="24,0 21,0 0,13 0,16 3,16 24,3" fill="#ffffff" />
+        <polygon points="0,0 1.5,0 24,14.5 24,16 22.5,16 0,1.5" fill="#C8102E" />
+        <polygon points="24,0 22.5,0 0,14.5 0,16 1.5,16 24,1.5" fill="#C8102E" />
+        <rect x="0" y="6" width="24" height="4" fill="#ffffff" />
+        <rect x="10" y="0" width="4" height="16" fill="#ffffff" />
+        <rect x="0" y="7" width="24" height="2" fill="#C8102E" />
+        <rect x="11" y="0" width="2" height="16" fill="#C8102E" />
         <rect width="24" height="16" x="0" y="0" fill="none" stroke="rgba(255,255,255,0.18)" />
       </svg>
     );
@@ -61,13 +67,13 @@ export const LanguageModal: React.FC = () => {
               </button>
 
               <button
-                onClick={() => setLanguage('nl')}
+                onClick={() => setLanguage('en')}
                 className="group relative overflow-hidden px-6 py-4 rounded-xl bg-white/5 border border-white/10 hover:border-gold/50 transition-all duration-300"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <FlagIcon code="nl" />
-                    <span className="font-medium">Nederlands</span>
+                    <FlagIcon code="en" />
+                    <span className="font-medium">English</span>
                   </div>
                   <div className="w-2 h-2 rounded-full bg-gold opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>

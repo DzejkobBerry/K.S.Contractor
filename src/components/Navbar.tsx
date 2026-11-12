@@ -17,7 +17,7 @@ export const Navbar: React.FC = () => {
   const pathnameRaw = usePathname();
   const pathname = pathnameRaw ?? '/';
 
-  const FlagIcon = ({ code, className }: { code: 'pl' | 'nl'; className?: string }) => {
+  const FlagIcon = ({ code, className }: { code: 'pl' | 'en'; className?: string }) => {
     if (code === 'pl') {
       return (
         <svg viewBox="0 0 24 16" className={className} aria-hidden="true">
@@ -30,9 +30,15 @@ export const Navbar: React.FC = () => {
 
     return (
       <svg viewBox="0 0 24 16" className={className} aria-hidden="true">
-        <rect width="24" height="16" x="0" y="0" fill="#21468b" />
-        <rect width="24" height="10.67" x="0" y="0" fill="#ffffff" />
-        <rect width="24" height="5.33" x="0" y="0" fill="#ae1c28" />
+        <rect width="24" height="16" x="0" y="0" fill="#012169" />
+        <polygon points="0,0 3,0 24,13 24,16 21,16 0,3" fill="#ffffff" />
+        <polygon points="24,0 21,0 0,13 0,16 3,16 24,3" fill="#ffffff" />
+        <polygon points="0,0 1.5,0 24,14.5 24,16 22.5,16 0,1.5" fill="#C8102E" />
+        <polygon points="24,0 22.5,0 0,14.5 0,16 1.5,16 24,1.5" fill="#C8102E" />
+        <rect x="0" y="6" width="24" height="4" fill="#ffffff" />
+        <rect x="10" y="0" width="4" height="16" fill="#ffffff" />
+        <rect x="0" y="7" width="24" height="2" fill="#C8102E" />
+        <rect x="11" y="0" width="2" height="16" fill="#C8102E" />
         <rect width="24" height="16" x="0" y="0" fill="none" stroke="rgba(255,255,255,0.18)" />
       </svg>
     );
@@ -66,14 +72,14 @@ export const Navbar: React.FC = () => {
         </button>
         <button
           type="button"
-          onClick={() => setLanguage('nl')}
+          onClick={() => setLanguage('en')}
           className={cn(
             'relative z-10 flex-1 rounded-full transition-colors flex items-center justify-center',
-            language === 'nl' ? 'text-navy' : 'text-white/80 hover:text-white'
+            language === 'en' ? 'text-navy' : 'text-white/80 hover:text-white'
           )}
-          aria-label="Nederlands"
+          aria-label="English"
         >
-          <FlagIcon code="nl" className={cn(isSmall ? 'h-4 w-6' : 'h-5 w-8', 'rounded-sm')} />
+          <FlagIcon code="en" className={cn(isSmall ? 'h-4 w-6' : 'h-5 w-8', 'rounded-sm')} />
         </button>
       </div>
     );
@@ -272,7 +278,7 @@ export const Navbar: React.FC = () => {
                 <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-5">
                   <div className="flex items-center gap-3 mb-4">
                     <Globe size={18} className="text-gold/80" />
-                    <p className="text-xs font-black uppercase tracking-[0.25em] text-white/80">Język</p>
+                    <p className="text-xs font-black uppercase tracking-[0.25em] text-white/80">{t.common.language}</p>
                   </div>
                   <LanguageSwitch size="lg" />
                 </div>

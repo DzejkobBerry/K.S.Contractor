@@ -16,14 +16,28 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    const savedLang = localStorage.getItem('ks_contractor_lang') as Language;
-    if (savedLang) {
+    const savedLang = localStorage.getItem('ks_contractor_lang');
+
+    if (savedLang === 'pl' || savedLang === 'en') {
       setLanguageState(savedLang);
       setShowModal(false);
-    } else {
-      setShowModal(true);
+      return;
     }
+
+    if (savedLang === 'nl') {
+      setLanguageState('en');
+      localStorage.setItem('ks_contractor_lang', 'en');
+      setShowModal(false);
+      return;
+    }
+
+    setLanguageState('pl');
+    setShowModal(true);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);

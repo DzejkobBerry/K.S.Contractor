@@ -33,7 +33,7 @@ export const Gallery: React.FC = () => {
     { url: "https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KS-contractor.nl/18_6_11zon.webp" },
   ];
 
-  const clickHint = language === 'pl' ? 'Kliknij, aby powiększyć' : 'Tik om te vergroten';
+  const clickHint = language === 'pl' ? 'Kliknij, aby powiększyć' : 'Click to enlarge';
   const portfolioLabel = language === 'pl' ? 'Portfolio' : 'Portfolio';
 
   const nextImage = (e?: React.MouseEvent) => {
@@ -118,7 +118,7 @@ export const Gallery: React.FC = () => {
                 />
                 <img
                   src={project.url}
-                  alt={`Gallery image ${i + 1}`}
+                  alt={language === 'pl' ? `Zdjęcie z realizacji ${i + 1}` : `Project photo ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
@@ -143,6 +143,7 @@ export const Gallery: React.FC = () => {
             className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
           >
             <button 
+              aria-label={language === 'pl' ? 'Zamknij galerię' : 'Close gallery'}
               onClick={() => setSelectedIndex(null)}
               className="absolute top-8 right-8 text-white/50 hover:text-gold transition-colors z-[110]"
             >
@@ -150,6 +151,7 @@ export const Gallery: React.FC = () => {
             </button>
 
             <button 
+              aria-label={language === 'pl' ? 'Poprzednie zdjęcie' : 'Previous image'}
               onClick={prevImage}
               className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-gold transition-colors z-[110]"
             >
@@ -157,6 +159,7 @@ export const Gallery: React.FC = () => {
             </button>
 
             <button 
+              aria-label={language === 'pl' ? 'Następne zdjęcie' : 'Next image'}
               onClick={nextImage}
               className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-gold transition-colors z-[110]"
             >
@@ -179,13 +182,13 @@ export const Gallery: React.FC = () => {
               />
               <img
                 src={projects[selectedIndex].url}
-                alt={`Gallery image ${selectedIndex + 1}`}
+                alt={language === 'pl' ? `Zdjęcie z realizacji ${selectedIndex + 1}` : `Project photo ${selectedIndex + 1}`}
                 className="absolute inset-0 w-full h-full object-contain"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 bg-gradient-to-t from-black/80 to-transparent">
                 <span className="text-gold font-bold uppercase tracking-[0.3em] text-xs mb-2 block">
-                  {language === 'pl' ? 'Zdjęcie' : 'Foto'} {String(selectedIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+                  {language === 'pl' ? 'Zdjęcie' : 'Photo'} {String(selectedIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
                 </span>
               </div>
             </motion.div>

@@ -10,7 +10,7 @@ export const Stats: React.FC = () => {
     { value: '150+', label: t.stats.projects, icon: Target },
     { value: '100%', label: t.stats.clients, icon: Users },
     { value: '12', label: t.stats.experience, icon: ShieldCheck },
-    { value: '15', label: t.stats.team, icon: Award },
+    { value: '1:1', label: t.stats.team, icon: Award },
   ];
 
   return (

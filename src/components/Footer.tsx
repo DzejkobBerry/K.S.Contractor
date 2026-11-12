@@ -6,7 +6,7 @@ import { Facebook, Instagram, Linkedin, Phone, Mail } from 'lucide-react';
 export const Footer: React.FC = () => {
   const { t, language } = useLanguage();
 
-  const FlagIcon = ({ code, className }: { code: 'pl' | 'nl'; className?: string }) => {
+  const FlagIcon = ({ code, className }: { code: 'pl' | 'en'; className?: string }) => {
     if (code === 'pl') {
       return (
         <svg viewBox="0 0 24 16" className={className} aria-hidden="true">
@@ -33,16 +33,15 @@ export const Footer: React.FC = () => {
     );
   };
 
-  const hoursTitle = language === 'pl' ? 'Godziny otwarcia' : 'Openingstijden';
-  const monFriLabel = language === 'pl' ? 'Pon - Pt:' : 'Ma - Vr:';
-  const satLabel = language === 'pl' ? 'Sob:' : 'Za:';
-  const sunLabel = language === 'pl' ? 'Niedz:' : 'Zo:';
-  const sunValue = language === 'pl' ? 'Opcjonalnie' : 'Optioneel';
-  const safetyCertified = language === 'pl' ? 'Certyfikat bezpieczeństwa' : 'Veiligheid gecertificeerd';
-  const rights = language === 'pl' ? 'Wszelkie prawa zastrzeżone.' : 'Alle rechten voorbehouden.';
-  const madeBy = language === 'pl' ? 'Strona wykonana przez' : 'Website door';
-  const privacy = language === 'pl' ? 'Polityka prywatności' : 'Privacybeleid';
-  const terms = language === 'pl' ? 'Warunki korzystania' : 'Algemene voorwaarden';
+  const hoursTitle = language === 'pl' ? 'Godziny otwarcia' : 'Opening hours';
+  const monFriLabel = language === 'pl' ? 'Pon - Pt:' : 'Mon - Fri:';
+  const satLabel = language === 'pl' ? 'Sob:' : 'Sat:';
+  const sunLabel = language === 'pl' ? 'Niedz:' : 'Sun:';
+  const sunValue = language === 'pl' ? 'Opcjonalnie' : 'By appointment';
+  const rights = language === 'pl' ? 'Wszelkie prawa zastrzeżone.' : 'All rights reserved.';
+  const madeBy = language === 'pl' ? 'Strona wykonana przez' : 'Website by';
+  const privacy = language === 'pl' ? 'Polityka prywatności' : 'Privacy Policy';
+  const terms = language === 'pl' ? 'Warunki korzystania' : 'Terms and Conditions';
 
   const renderContractorCasing = (text: string) => {
     const key = 'Contractor';
@@ -98,6 +97,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-gold font-bold uppercase tracking-widest text-xs mb-6">{t.nav.services}</h4>
             <ul className="space-y-3 text-sm text-muted">
               <li>{t.services.items.tiles}</li>
+              <li>{t.services.items.concreteFloor}</li>
               <li>{t.services.items.flooring}</li>
               <li>{t.services.items.painting}</li>
               <li>{t.services.items.drywall}</li>
@@ -110,11 +110,11 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-muted">
               <li className="flex justify-between">
                 <span>{monFriLabel}</span>
-                <span className="text-white">07:00 - 19:00</span>
+                <span className="text-white">07:00 - 17:00</span>
               </li>
               <li className="flex justify-between">
                 <span>{satLabel}</span>
-                <span className="text-white">07:00 - 17:00</span>
+                <span className="text-white">07:00 - 15:00</span>
               </li>
               <li className="flex justify-between">
                 <span>{sunLabel}</span>
@@ -128,28 +128,29 @@ export const Footer: React.FC = () => {
               <h4 className="text-gold font-bold uppercase tracking-widest text-xs">{t.nav.contact}</h4>
               <div className="flex items-center gap-2">
                 <FlagIcon code="pl" className="h-3 w-4 rounded-sm" />
-                <FlagIcon code="nl" className="h-3 w-4 rounded-sm" />
+                <FlagIcon code="en" className="h-3 w-4 rounded-sm" />
               </div>
             </div>
             <ul className="space-y-4 text-sm text-muted">
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-gold" />
-                <a href="tel:+31687874004" className="hover:text-gold transition-colors">+31 6 87874004</a>
+                <a
+                  href="tel:+48515383344"
+                  className="hover:text-gold transition-colors"
+                >
+                  +48 515383344
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-gold" />
-                <a href="mailto:info@k-s-contractor.nl" className="hover:text-gold transition-colors">info@k-s-contractor.nl</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-gold font-bold">VCA</span>
-                <span>{safetyCertified}</span>
+                <a href="mailto:info@kscontractor.pl" className="hover:text-gold transition-colors">info@kscontractor.pl</a>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-muted/60">
-          <p>© 2026 {renderContractorCasing('K.S. Contractor')}. {rights}</p>
+          <p>© {new Date().getFullYear()} {renderContractorCasing('K.S. Contractor')}. {rights}</p>
           <p>{madeBy} <a href="https://bloompixel.studio" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">bloompixel.studio</a></p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-gold transition-colors">{privacy}</a>

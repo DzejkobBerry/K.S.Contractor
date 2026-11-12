@@ -8,8 +8,8 @@ export const FloatingActions: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { language } = useLanguage();
 
-  const scrollTitle = language === 'pl' ? 'Przewiń do góry' : 'Naar boven';
-  const whatsappHint = language === 'pl' ? 'Napisz do nas na WhatsApp' : 'Chat met ons op WhatsApp';
+  const scrollTitle = language === 'pl' ? 'Przewiń do góry' : 'Back to top';
+  const whatsappHint = language === 'pl' ? 'Napisz do nas na WhatsApp' : 'Chat with us on WhatsApp';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +34,7 @@ export const FloatingActions: React.FC = () => {
             onClick={scrollToTop}
             className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-gold hover:text-navy transition-all shadow-xl group"
             title={scrollTitle}
+            aria-label={scrollTitle}
           >
             <ChevronUp size={24} className="group-hover:-translate-y-1 transition-transform" />
           </motion.button>
@@ -41,7 +42,8 @@ export const FloatingActions: React.FC = () => {
       </AnimatePresence>
 
       <motion.a
-        href="https://wa.me/31687874004"
+        href="https://wa.me/48515383344"
+        aria-label={whatsappHint}
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0 }}

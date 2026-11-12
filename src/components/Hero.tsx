@@ -7,13 +7,13 @@ import Link from 'next/link';
 export const Hero: React.FC = () => {
   const { t, language } = useLanguage();
 
-  const heroKicker = language === 'pl' ? 'Rotterdam • Remonty' : 'Rotterdam • Bouw';
-  const scrollDownLabel = language === 'pl' ? 'Przewiń w dół' : 'Scroll omlaag';
-  const safetyTitle = language === 'pl' ? 'Certyfikowany standard bezpieczeństwa' : 'Gecertificeerde veiligheidsnorm';
+  const heroKicker = 'Poland, Radom • Professional renovations';
+  const scrollDownLabel = language === 'pl' ? 'Przewiń w dół' : 'Scroll down';
+  const safetyTitle = language === 'pl' ? 'Bezpieczna i staranna realizacja' : 'Safe and careful project delivery';
   const safetyQuote =
     language === 'pl'
       ? '"Każdy remont zaczyna się od marzeń, ale jego sukces zależy od solidnego planu."'
-      : '"We bouwen niet alleen; we leveren duurzame projecten met compromisloze veiligheid en precisie."';
+      : '"Every renovation starts with a vision, but its success depends on a solid plan."';
 
   return (
     <section id="home" className="relative min-h-screen lg:h-screen w-full flex items-center justify-center overflow-hidden bg-black py-16 sm:py-20 lg:py-0">
@@ -51,7 +51,34 @@ export const Hero: React.FC = () => {
             <div className="flex items-center gap-4 mb-8 md:mb-10">
               <div className="h-px w-12 bg-gold" />
               <span className="text-gold text-xs md:text-sm font-mono uppercase tracking-[0.3em]">
-                {heroKicker}
+                {language === 'pl' ? (
+                  <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <motion.span
+                      initial={{ opacity: 0, x: -18, filter: 'blur(6px)' }}
+                      animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                      transition={{ duration: 0.65, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      Polska, Radom
+                    </motion.span>
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: [0, 1, 0.45, 1], scale: [0, 1.5, 1, 1] }}
+                      transition={{ duration: 1.1, delay: 1, times: [0, 0.35, 0.7, 1] }}
+                      className="text-gold/70"
+                    >
+                      •
+                    </motion.span>
+                    <motion.span
+                      initial={{ opacity: 0, x: 18, filter: 'blur(6px)' }}
+                      animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                      transition={{ duration: 0.65, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      Profesjonalne remonty
+                    </motion.span>
+                  </span>
+                ) : (
+                  heroKicker
+                )}
               </span>
             </div>
 
@@ -89,7 +116,9 @@ export const Hero: React.FC = () => {
               <div className="absolute top-0 right-0 p-6 text-gold/40">
                 <ShieldCheck size={80} />
               </div>
-              <p className="text-4xl font-display font-black text-gold mb-4 tracking-tighter">VCA & GPI</p>
+              <p className="text-4xl font-display font-black text-gold mb-4 tracking-tighter">
+                360°
+              </p>
               <p className="text-sm text-muted uppercase tracking-widest font-bold mb-8">{safetyTitle}</p>
               <div className="h-px w-full bg-white/10 mb-8" />
               <p className="text-lg font-serif italic text-white/80">

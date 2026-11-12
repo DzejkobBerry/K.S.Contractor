@@ -6,8 +6,8 @@ import { Search, FileText, Hammer, CheckCircle2 } from 'lucide-react';
 export const Process: React.FC = () => {
   const { t, language } = useLanguage();
 
-  const bgLabel = language === 'pl' ? 'Proces' : 'Proces';
-  const sectionLabel = language === 'pl' ? 'Realizacja' : 'Uitvoering';
+  const bgLabel = language === 'pl' ? 'Proces' : 'Process';
+  const sectionLabel = language === 'pl' ? 'Realizacja' : 'Project delivery';
 
   const steps = [
     { id: 'step1', icon: Search },
